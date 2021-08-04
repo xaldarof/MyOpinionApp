@@ -15,6 +15,8 @@ import com.example.myopinion.adapters.MyOpinionsItemAdapter
 import com.example.myopinion.databinding.FragmentMyOpinionsBinding
 import com.example.myopinion.helpers.BundleSender
 import com.example.myopinion.helpers.BundleSenderProvider
+import com.example.myopinion.helpers.MyOpinionAdapterHelper
+import com.example.myopinion.helpers.MyOpinionsAdapterHelperProvider
 import com.example.myopinion.models.Opinion
 import com.example.myopinion.repository.entity.OpinionEntity
 import com.example.myopinion.viewmodel.MyOpinionsFragmentViewModel
@@ -33,29 +35,14 @@ class MyOpinionsFragment : Fragment() {
         val viewModel = ViewModelProvider(this,MyOpinionsViewModelFactory(realm))[MyOpinionsFragmentViewModel::class.java]
 
         val list = viewModel.getOpinionsFromDatabase()
-        val adapter = MyOpinionsItemAdapter(list,object : MyOpinionsItemAdapter.OnClickListener{
-            override fun onClickShare(opinion: OpinionEntity, position: Int) {
-                val shareIntent = Intent().apply {
-                    action = Intent.ACTION_SEND
-                    putExtra(Intent.EXTRA_TEXT,opinion.shortDescription)
-                    type = "text/plain"
-                }
-                startActivity(shareIntent)
-            }
+        val myOpinionAdapterHelper = MyOpinionAdapterHelper(MyOpinionsAdapterHelperProvider(requireActivity(),this,list,
+            bundleSender,binding.rv))
+        myOpinionAdapterHelper.initAdapter()
+        myOpinionAdapterHelper.notifyDataSetChanged()
 
-            override fun onClickComment(opinion: OpinionEntity, position: Int) {
-                bundleSender.sendBundle(this@MyOpinionsFragment,opinion.postId.toString())
-            }
-
-        },requireContext())
         binding.toolbarMyOpinions.backBtn.setOnClickListener {
             parentFragmentManager.popBackStack()
         }
-
-
-        binding.rv.adapter = adapter
-        adapter.notifyDataSetChanged()
-
 
         return binding.root
     }
