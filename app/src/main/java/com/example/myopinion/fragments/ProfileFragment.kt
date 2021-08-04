@@ -13,6 +13,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import com.example.myopinion.databinding.FragmentProfileBinding
+import com.example.myopinion.helpers.BottomSheetDialogShower
+import com.example.myopinion.helpers.ProfileBottomSheetDialogShower
 import com.example.myopinion.netReq.userProfile.UserProfileCheckProvider
 import com.example.myopinion.netReq.userProfile.UserProfileChecker
 import com.example.myopinion.presentation.registration.RegisterActivity
@@ -38,13 +40,16 @@ class ProfileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentProfileBinding.inflate(inflater, container, false)
+        initActions()
 
         firebaseAuth = FirebaseAuth.getInstance()
         user = firebaseAuth.currentUser
         userProfileChecker = UserProfileChecker(UserProfileCheckProvider(user!!,binding.profilePhoto))
         userProfileChecker.initProfilePhoto()
 
-
+        return binding.root
+    }
+    private fun initActions(){
         binding.toolBar.backBtn.setOnClickListener {
             parentFragmentManager.popBackStack()
         }
@@ -53,11 +58,12 @@ class ProfileFragment : Fragment() {
             val intent = Intent(requireContext(), RegisterActivity::class.java)
             startActivity(intent)
         }
-
         binding.profilePhoto.setOnClickListener {
             updateImage()
         }
-        return binding.root
+        binding.fillBtn.setOnClickListener {
+            ProfileBottomSheetDialogShower(requireContext(),this).show()
+        }
     }
 
     private fun updateImage() {

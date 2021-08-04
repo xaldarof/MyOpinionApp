@@ -56,5 +56,7 @@
     <string name="soon_update">Скоро обновление</string>
     <string name="addComment">Оставить коментарии</string>
     <string name="my_opinions_toolbar_tv">Мои мнении</string>
+    <string name="all_opinions">Все мнении : </string>
+    <string name="fill_data_text">Заполнить данные</string>
 
 </resources>

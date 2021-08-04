@@ -31,7 +31,6 @@
         android:layout_marginTop="36dp"
         android:layout_marginEnd="52dp"
         android:layout_marginRight="52dp"
-        android:fontFamily="monospace"
         android:text="Temur Xoldarov"
         android:textColor="@color/black"
         android:textSize="25sp"
@@ -40,18 +39,36 @@
         app:layout_constraintStart_toEndOf="@+id/profilePhoto"
         app:layout_constraintTop_toBottomOf="@+id/toolBar" />
 
+
     <TextView
         android:id="@+id/tvEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="116dp"
         android:layout_marginLeft="116dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="monospace"
         android:text="temuruz2003@gmail.com"
         android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@+id/profilePhoto"
         app:layout_constraintTop_toBottomOf="@+id/tvName" />
-    " />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/fillBtn"
+            android:layout_width="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:text="@string/fill_data_text"
+            android:padding="10dp"
+            android:layout_margin="18dp"
+            android:textColor="@color/white"
+            android:layout_centerInParent="true"
+            android:background="@drawable/btn_style"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
