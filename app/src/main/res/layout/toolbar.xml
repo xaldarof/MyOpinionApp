@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/clubHouse">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:padding="10dp">
+
+        <com.skydoves.elasticviews.ElasticImageView
+            android:id="@+id/search"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/ic_baseline_search_24"
+            android:tint="@color/black"
+            app:imageView_duration="100" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:gravity="right"
+        android:padding="8dp"
+        tools:ignore="RtlHardcoded">
+
+
+        <com.skydoves.elasticviews.ElasticImageView
+            android:id="@+id/saved"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginRight="16dp"
+            android:src="@drawable/ic_baseline_notes_24"
+            android:tint="@color/black"
+            app:imageView_duration="100" />
+
+        <com.skydoves.elasticviews.ElasticImageView
+            android:id="@+id/notifications"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginRight="16dp"
+            android:src="@drawable/ic_baseline_email_24"
+            android:tint="@color/black"
+            app:imageView_duration="100" />
+
+        <com.skydoves.elasticviews.ElasticImageView
+            android:id="@+id/myProfile"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginRight="16dp"
+            android:src="@drawable/ic_baseline_person_24"
+            android:tint="@color/black"
+            app:imageView_duration="100" />
+
+
+    </LinearLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.nex3z.notificationbadge.NotificationBadge
+            android:id="@+id/badge"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.82"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:nbAnimationDuration="100"
+            app:nbAnimationEnabled="true"
+            app:nbMaxTextLength="2" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

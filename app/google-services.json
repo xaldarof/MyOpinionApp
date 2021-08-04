@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "725659563379",
+    "firebase_url": "https://myopinionnewbase-default-rtdb.firebaseio.com",
+    "project_id": "myopinionnewbase",
+    "storage_bucket": "myopinionnewbase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:725659563379:android:c42098b86807b03fb50106",
+        "android_client_info": {
+          "package_name": "com.example.myopinion"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "725659563379-ka92etoo8oset6n1doa2q1489bs5cgqm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDfXnWPm8LQzK38cbBVkJgxQ9eZZEDx7hQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "725659563379-ka92etoo8oset6n1doa2q1489bs5cgqm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

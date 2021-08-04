@@ -1,0 +1,60 @@
+<resources>
+    <string name="app_name">My opinion</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="welcome">Делись своими мнениями обо всем !</string>
+    <string name="hi">Привет</string>
+    <string name="shareBtnText">+ Делиться мнением</string>
+    <string name="Continue">Далее</string>
+    <string name="selectType">Выберите тип</string>
+    <string name="back">Назад</string>
+    <string name="notSelectedText">Вы не выбрали</string>
+    <string name="global">Глобальные мнении</string>
+    <string name="cancel">Выйти</string>
+    <string name="new_opinion">Новая мнения</string>
+    <string name="author_name">Имя автора</string>
+    <string name="shortDescription">Краткое описание темы</string>
+    <string name="date">Дата</string>
+    <string name="titleTxt">Заголовок</string>
+    <string name="write_here">А вот здесь пишите…</string>
+    <string name="exact_theme_opinion">Именно о чем будет идти речь:</string>
+    <string name="success">Успешно опубликовано !</string>
+    <string name="will_continur_theme">Будет идти речь про :</string>
+    <string name="forWhomMain">Для кого это мнения :</string>
+    <string name="dateMain">Дата мнении :</string>
+    <string name="bodyMain">Текст :</string>
+
+
+    <string name="life">Жизнь</string>
+    <string name="Business">Бизнес</string>
+    <string name="Carreer">Карьера</string>
+    <string name="Tech">ИТ</string>
+    <string name="Family">Семья</string>
+    <string name="Love">Любовь</string>
+    <string name="Astronomy">Астрономия</string>
+    <string name="Sport">Спорт</string>
+
+    <string name="noInternet">Нет подключения к интернету, пожалуйста проверьте соединение.</string>
+    <string name="fireBaseError">Нет подключения к интернету, пожалуйста проверьте соединение.</string>
+    <string name="short_description">Описание : </string>
+    <string name="decription">Описание…</string>
+    <string name="write_comment_here">Пишите здесь…</string>
+    <string name="comment_toolbar_tv">Комментарии</string>
+    <string name="no_comments">Здесь пока ничего нет</string>
+    <string name="your_profile">Ваш профиль</string>
+
+
+    <string name="inValidInput">Пожалуйста заполните все поля.</string>
+    <string name="registration">Зарегистрироваться.</string>
+    <string name="create_to_continue">Создайте аккаунт чтобы продолжить.</string>
+    <string name="welcomeSignIN">Добро пожаловать !</string>
+    <string name="loginHint">Логин</string>
+    <string name="loginBtnText">Войти</string>
+    <string name="create_with_google">Создать через Google</string>
+    <string name="password_hint">Пароль</string>
+    <string name="searchingItem">Поиск...</string>
+    <string name="notes">Уведомлении</string>
+    <string name="soon_update">Скоро обновление</string>
+    <string name="addComment">Оставить коментарии</string>
+    <string name="my_opinions_toolbar_tv">Мои мнении</string>
+
+</resources>
