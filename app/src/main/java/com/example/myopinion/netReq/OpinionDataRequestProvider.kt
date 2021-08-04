@@ -18,7 +18,9 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import io.realm.Realm
 
-class OpinionDataRequestProvider(private val binding: ActivityWriteOpinionBinding,private val type:String,private val activity: Activity,private val context: Context,realm: Realm): OpinionsRequestService{
+class OpinionDataRequestProvider(private val binding: ActivityWriteOpinionBinding,
+                                 private val type:String,private val activity: Activity,
+                                 private val context: Context,realm: Realm): OpinionsRequestService{
 
     private lateinit var reference: DatabaseReference
     private lateinit var firebaseDatabase: FirebaseDatabase
@@ -26,6 +28,7 @@ class OpinionDataRequestProvider(private val binding: ActivityWriteOpinionBindin
     private val formattedDate = FormattedDate.formatted()
     private val opinionDataSource = OpinionDataSource(OpinionCacheDataSource(realm))
     private val inputValidator = InputValidator(binding,type)
+    private val opinionMaker = OpinionMaker(binding,formattedDate)
 
     override fun sendData() {
         firebaseDatabase = FirebaseDatabase.getInstance()
@@ -33,31 +36,25 @@ class OpinionDataRequestProvider(private val binding: ActivityWriteOpinionBindin
         firebaseAuth = FirebaseAuth.getInstance()
         val push = reference.push().key
 
-        val title = binding.titleEditText.text.toString()
-        val username = binding.authorNameEditText.text.toString()
-        val shortDescriptionCompat =  binding.shortDescriptionEditText.text.toString()
-        val exactTheme = binding.exactThemeEditText.text.toString()
-        val body = binding.bodyEditText.text.toString()
-        val postId = push.toString()
-
-        val opinion = Opinion(title,type,username,formattedDate,shortDescriptionCompat,exactTheme,body,postId)
-
         binding.apply {
-          publishDataIfValid(push.toString(),opinion)
+          publishDataIfValid(push.toString(),opinionMaker.getMadeOpinion(push.toString(),type))
         }
     }
     private fun publishDataIfValid(push:String,opinion: Opinion){
         if (inputValidator.isValidUserInput()) {
             SuccessDialogShower().show(context,activity)
             reference.child(push).setValue(opinion)
-            val opinionEntity = OpinionEntity()
-            val opinionEntityMaker = OpinionEntityMaker(OpinionEntityProvider(opinion,opinionEntity))
 
-            opinionDataSource.saveOpinion(opinionEntityMaker.opinionToOpinionEntity())
+            saveThisOpinionToDataBase(opinion)
 
         } else {
             TopSnackBarShower.show(binding.constraintLayout, activity, activity.applicationContext.resources.getString(
                 R.string.inValidInput))
         }
+    }
+    private fun saveThisOpinionToDataBase(opinion: Opinion) {
+        val opinionEntity = OpinionEntity()
+        val opinionEntityMaker = OpinionEntityMaker(OpinionEntityProvider(opinion,opinionEntity))
+        opinionDataSource.saveOpinion(opinionEntityMaker.opinionToOpinionEntity())
     }
 }
