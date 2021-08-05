@@ -63,7 +63,7 @@ class ProfileBottomSheetDialogShower(
         val button = view.findViewById<AppCompatButton>(R.id.buttonSave)
 
         button.setOnClickListener {
-            val user = UserModel(name.text.toString(),surname.text.toString(),hobby.text.toString(),birthDay,dateOfRegister)
+            val user = UserModel(name.text.toString(),surname.text.toString(),hobby.text.toString(),birthDay,dateOfRegister,"null")
             saveUserToFireBase(user,firebaseAuth.currentUser!!.uid)
         }
         bottomSheetDialog.setContentView(view)
