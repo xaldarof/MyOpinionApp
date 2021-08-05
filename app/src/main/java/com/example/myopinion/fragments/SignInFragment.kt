@@ -6,16 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
-import com.example.myopinion.R
 import com.example.myopinion.databinding.FragmentSignInBinding
-import com.example.myopinion.netReq.UserCreator
-import com.example.myopinion.netReq.UserCreatorProvider
 import com.example.myopinion.viewmodel.SignInFragmentViewModel
 import com.example.myopinion.viewmodel.SignInViewModelFactory
-import com.example.myopinion.viewmodel.ViewModelFactory
 import com.google.firebase.auth.FirebaseAuth
-import kotlin.math.log
 
 class SignInFragment : Fragment() {
 

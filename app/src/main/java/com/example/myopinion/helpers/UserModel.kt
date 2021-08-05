@@ -9,6 +9,7 @@ class UserModel : Serializable {
    var birthDay = ""
    var dateOfRegister = ""
    var profileImage = ""
+    var uid = ""
 
     constructor()
     constructor(
@@ -17,7 +18,8 @@ class UserModel : Serializable {
         hobby: String,
         birthDay: String,
         dateOfRegister: String,
-        profileImage:String
+        profileImage:String,
+        uid:String
 
     ) {
         this.name = name
@@ -26,11 +28,11 @@ class UserModel : Serializable {
         this.birthDay = birthDay
         this.dateOfRegister = dateOfRegister
         this.profileImage = profileImage
+        this.uid = uid
     }
 
     override fun toString(): String {
-        return "UserModel(name='$name', surname='$surname', hobby='$hobby', birthDay='$birthDay', dateOfRegister='$dateOfRegister', profileImage='$profileImage')"
+        return "UserModel(name='$name', surname='$surname', hobby='$hobby', birthDay='$birthDay', dateOfRegister='$dateOfRegister', profileImage='$profileImage', uid='$uid')"
     }
-
 
 }

@@ -13,7 +13,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import com.example.myopinion.databinding.FragmentProfileBinding
-import com.example.myopinion.helpers.BottomSheetDialogShower
 import com.example.myopinion.helpers.ProfileBottomSheetDialogShower
 import com.example.myopinion.netReq.userProfile.UserProfileCheckProvider
 import com.example.myopinion.netReq.userProfile.UserProfileChecker
@@ -23,10 +22,9 @@ import com.example.myopinion.viewmodel.ProfileFragmentViewModel
 import com.example.myopinion.viewmodel.ProfileViewModelFactory
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+
 
 class ProfileFragment : Fragment() {
 
@@ -34,6 +32,8 @@ class ProfileFragment : Fragment() {
     private lateinit var firebaseAuth: FirebaseAuth
     private var user: FirebaseUser? = null
     private lateinit var userProfileChecker: UserProfileChecker
+    private lateinit var firebaseDatabase : FirebaseDatabase
+    private lateinit var referenceFirebaseDatabase : DatabaseReference
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,7 +44,10 @@ class ProfileFragment : Fragment() {
 
         firebaseAuth = FirebaseAuth.getInstance()
         user = firebaseAuth.currentUser
-        userProfileChecker = UserProfileChecker(UserProfileCheckProvider(user!!,binding.profilePhoto))
+        firebaseDatabase = FirebaseDatabase.getInstance()
+        referenceFirebaseDatabase = firebaseDatabase.reference
+
+        userProfileChecker = UserProfileChecker(UserProfileCheckProvider(firebaseAuth,referenceFirebaseDatabase,firebaseDatabase,binding.profilePhoto))
         userProfileChecker.initProfilePhoto()
 
         return binding.root
@@ -81,9 +84,9 @@ class ProfileFragment : Fragment() {
                 RESULT_OK -> {
                     val bitmap = data?.extras?.get("data") as Bitmap
                     binding.profilePhoto.setImageBitmap(bitmap)
-                    val viewModel = ViewModelProvider(this, ProfileViewModelFactory(bitmap))[ProfileFragmentViewModel::class.java]
+                    val viewModel = ViewModelProvider(this, ProfileViewModelFactory(bitmap,firebaseAuth,referenceFirebaseDatabase,firebaseDatabase))[ProfileFragmentViewModel::class.java]
                     viewModel.changeProfilePhoto()
-                    userProfileChecker = UserProfileChecker(UserProfileCheckProvider(user!!,binding.profilePhoto))
+                    userProfileChecker = UserProfileChecker(UserProfileCheckProvider(firebaseAuth,referenceFirebaseDatabase,firebaseDatabase,binding.profilePhoto))
                     userProfileChecker.initProfilePhoto()
                 }
             }
