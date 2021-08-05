@@ -17,5 +17,4 @@ class WriteOpinionViewModel(binding : ActivityWriteOpinionBinding, type:String,a
     fun sendOpinionToFireBase() = viewModelScope.launch{
         opinionDataRequest.sendData()
     }
-
 }

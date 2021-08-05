@@ -4,7 +4,9 @@ import android.app.Activity
 import android.content.Context
 import com.example.myopinion.R
 import com.example.myopinion.databinding.ActivityWriteOpinionBinding
+import com.example.myopinion.fragments.ProfileFragment
 import com.example.myopinion.helpers.InputValidator
+import com.example.myopinion.helpers.ProfileBottomSheetDialogShower
 import com.example.myopinion.models.Opinion
 import com.example.myopinion.repository.OpinionCacheDataSource
 import com.example.myopinion.repository.OpinionDataSource
@@ -40,11 +42,11 @@ class OpinionDataRequestProvider(private val binding: ActivityWriteOpinionBindin
           publishDataIfValid(push.toString(),opinionMaker.getMadeOpinion(push.toString(),type))
         }
     }
+
     private fun publishDataIfValid(push:String,opinion: Opinion){
         if (inputValidator.isValidUserInput()) {
             SuccessDialogShower().show(context,activity)
             reference.child(push).setValue(opinion)
-
             saveThisOpinionToDataBase(opinion)
 
         } else {
@@ -52,6 +54,7 @@ class OpinionDataRequestProvider(private val binding: ActivityWriteOpinionBindin
                 R.string.inValidInput))
         }
     }
+
     private fun saveThisOpinionToDataBase(opinion: Opinion) {
         val opinionEntity = OpinionEntity()
         val opinionEntityMaker = OpinionEntityMaker(OpinionEntityProvider(opinion,opinionEntity))
