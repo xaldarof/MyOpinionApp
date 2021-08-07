@@ -1,7 +1,6 @@
 package com.example.myopinion.netReq
 
 import android.content.Context
-import android.os.Looper
 import android.util.Log
 import android.widget.EditText
 import androidx.fragment.app.Fragment
@@ -10,8 +9,6 @@ import com.example.myopinion.tools.FormattedDate
 import com.example.myopinion.utils.KeyWords
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
-import com.squareup.picasso.Picasso
-import jp.wasabeef.picasso.transformations.CropCircleTransformation
 
 class CommentDataRequestProvider(private val context: Context, private val fragment: Fragment) : CommentService{
 
