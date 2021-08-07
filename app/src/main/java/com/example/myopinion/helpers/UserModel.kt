@@ -18,7 +18,7 @@ class UserModel : Serializable {
         hobby: String,
         birthDay: String,
         dateOfRegister: String,
-        profileImage:String,
+        profileImage: String,
         uid:String
 
     ) {
