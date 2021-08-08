@@ -1,11 +1,7 @@
 package com.example.myopinion.presentation
 
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
 import com.example.myopinion.R
 import com.example.myopinion.adapters.FragmentAdapter
 import com.example.myopinion.databinding.ActivityMainBinding
@@ -17,7 +13,6 @@ import com.example.myopinion.netReq.NotificationCounter
 import com.example.myopinion.netReq.NotificationCounterProvider
 import com.example.myopinion.tools.NetworkUtils
 import com.example.myopinion.tools.TopSnackBarShower
-import com.example.myopinion.viewmodel.NotificationFragmentViewModel
 import com.google.firebase.firestore.FirebaseFirestore
 
 class MainActivity : AppCompatActivity() {
@@ -58,6 +53,7 @@ class MainActivity : AppCompatActivity() {
         binding.toolBarMain.search.setOnClickListener {
             fm.beginTransaction().replace(R.id.layout,searchFragment).addToBackStack(null).commit()
         }
+
 
         binding.toolBarMain.notifications.setOnClickListener {
             fm.beginTransaction().replace(R.id.layout,notificationFragment).addToBackStack(null).commit()

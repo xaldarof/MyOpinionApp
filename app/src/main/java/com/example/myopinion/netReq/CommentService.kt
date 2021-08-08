@@ -5,4 +5,5 @@ import android.widget.EditText
 interface CommentService {
 
     fun sendComment(editText: EditText)
+
 }

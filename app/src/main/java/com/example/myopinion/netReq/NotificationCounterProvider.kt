@@ -20,7 +20,7 @@ class NotificationCounterProvider(private var firestore: FirebaseFirestore) : No
                 notificationData.forEach { result ->
                     val note = result.toObject(Notification::class.java)
                     list.add(note)
-                    Log.d("aaaa","PROVIDER= ${list.size.toString()}")
+                    Log.d("aaaa","PROVIDER= ${list.size}")
                 }
 
             }

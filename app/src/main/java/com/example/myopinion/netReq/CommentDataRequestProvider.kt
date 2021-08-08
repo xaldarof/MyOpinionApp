@@ -16,22 +16,28 @@ class CommentDataRequestProvider(private val context: Context, private val fragm
     private var reference: DatabaseReference = database.getReference(KeyWords.FIREBAE_PATH)
     private var currentUser = FirebaseAuth.getInstance().currentUser
     private var image = ""
+    private var name = ""
 
     override fun sendComment(editText: EditText) {
         val formattedDate = FormattedDate.formatted()
         val postId = fragment.requireArguments().getString("postId").toString()
         val comment = editText.text.toString()
         val pushId = reference.push().key.toString()
+        val img = "https://image.flaticon.com/icons/png/512/3296/3296116.png"
 
         val databaseForCommentImage: FirebaseDatabase = FirebaseDatabase.getInstance()
         val referenceForCommentImage: DatabaseReference = databaseForCommentImage.getReference("users")
 
         referenceForCommentImage.addValueEventListener(object :ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
+                //we will take image url from user profile
                 image = snapshot.child(currentUser!!.uid).child("profileImage").value.toString()
+                name = snapshot.child(currentUser!!.uid).child("name").value.toString()
+
                 Log.d("image",image)
                 reference.child(postId).child(KeyWords.COMMENT_PATH).child(pushId)
-                    .setValue(Comment(formattedDate, comment,image,pushId,currentUser?.displayName.toString()))
+                    .setValue(Comment(formattedDate, comment,img,pushId,currentUser?.displayName.toString()))
+                //  .setValue(Comment(formattedDate, comment,image,pushId,currentUser?.displayName.toString()))
             }
 
             override fun onCancelled(error: DatabaseError) {
@@ -39,7 +45,6 @@ class CommentDataRequestProvider(private val context: Context, private val fragm
             }
 
         })
-
     }
 
 }
