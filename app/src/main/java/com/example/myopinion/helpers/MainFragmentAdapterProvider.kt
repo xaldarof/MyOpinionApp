@@ -6,6 +6,11 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myopinion.adapters.ItemAdapter
 import com.example.myopinion.models.Opinion
+import com.example.myopinion.repository.FavoriteOpinionCacheDataSource
+import com.example.myopinion.repository.FavoriteOpinionDataSource
+import com.example.myopinion.repository.OpinionToFavoriteOpinionEntity
+import com.example.myopinion.repository.entity.FavoriteOpinionEntity
+import io.realm.Realm
 
 class MainFragmentAdapterProvider(private val list: List<Opinion>, private val context: Context,
                                   private val fragment: Fragment, private val recyclerView: RecyclerView,
@@ -13,11 +18,20 @@ class MainFragmentAdapterProvider(private val list: List<Opinion>, private val c
                                 ) : MainFragmentAdapterService{
 
     private lateinit var itemAdapter: ItemAdapter
+    private val realm = Realm.getDefaultInstance()
+    private val favoriteOpinionDataSource = FavoriteOpinionDataSource(FavoriteOpinionCacheDataSource(realm))
 
     override fun initAdapter() {
+
         itemAdapter = ItemAdapter(list, object : ItemAdapter.OnClickListener {
             override fun onClickSave(opinion: Opinion, position: Int) {
-                Toast.makeText(context, "Succesfully saved !", Toast.LENGTH_SHORT).show()
+                val opinionToFavoriteOpinionEntity = OpinionToFavoriteOpinionEntity(
+                    FavoriteOpinionEntity()
+                )
+                val mappedOpinionEntity = opinionToFavoriteOpinionEntity.opinionToFavoriteEntity(opinion)
+                Toast.makeText(context, "Saved to favorites", Toast.LENGTH_SHORT).show()
+                favoriteOpinionDataSource.saveOpinionToFavorites(mappedOpinionEntity)
+
             }
 
             override fun onClickComment(opinion: Opinion, position: Int) {

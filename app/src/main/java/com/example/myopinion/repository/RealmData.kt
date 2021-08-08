@@ -10,7 +10,7 @@ class RealmData : Application() {
         super.onCreate()
         Realm.init(this)
         val build = RealmConfiguration.Builder()
-            .schemaVersion(1)
+            .schemaVersion(2)
             .allowWritesOnUiThread(true)
             .allowQueriesOnUiThread(true)
             .deleteRealmIfMigrationNeeded()

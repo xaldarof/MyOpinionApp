@@ -37,7 +37,7 @@
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_marginRight="16dp"
-            android:src="@drawable/ic_baseline_notes_24"
+            android:src="@drawable/ic_baseline_favorite_24"
             android:tint="@color/black"
             app:imageView_duration="100" />
 

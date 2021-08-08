@@ -18,6 +18,7 @@ import com.example.myopinion.tools.ProgressChecker.Companion.check
 import com.example.myopinion.tools.TopSnackBarShower
 import com.example.myopinion.viewmodel.MainViewModel
 import com.example.myopinion.viewmodel.ViewModelFactory
+import io.realm.Realm
 
 class MainFragment : Fragment() {
 

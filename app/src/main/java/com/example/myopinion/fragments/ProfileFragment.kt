@@ -60,6 +60,7 @@ class ProfileFragment : Fragment() {
             firebaseAuth.signOut()
             val intent = Intent(requireContext(), RegisterActivity::class.java)
             startActivity(intent)
+            requireActivity().finish()
         }
         binding.profilePhoto.setOnClickListener {
             updateImage()
