@@ -15,10 +15,10 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="0dp"
-        android:textAlignment="center"
-        android:text="@string/global"
-        android:textSize="20sp"
         android:gravity="center_horizontal"
+        android:text="@string/global"
+        android:textAlignment="center"
+        android:textSize="20sp"
         app:drawableBottomCompat="@drawable/ic_baseline_remove_24" />
 
     <androidx.recyclerview.widget.RecyclerView

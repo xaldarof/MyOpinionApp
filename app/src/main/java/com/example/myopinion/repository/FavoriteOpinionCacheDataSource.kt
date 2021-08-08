@@ -16,4 +16,10 @@ class FavoriteOpinionCacheDataSource(private var realm: Realm) : FavoriteOpinion
     override fun getFavoriteOpinions(): RealmResults<FavoriteOpinionEntity> {
         return realm.where(FavoriteOpinionEntity::class.java).findAll()
     }
+
+    override fun deleteFavoriteOpinion(opinionEntity: FavoriteOpinionEntity, position: Int) {
+        realm.executeTransaction {
+            opinionEntity.deleteFromRealm()
+        }
+    }
 }

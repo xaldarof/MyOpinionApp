@@ -35,7 +35,6 @@ class MyOpinionsFragment : Fragment() {
         binding.toolbarMyOpinions.backBtn.setOnClickListener {
             parentFragmentManager.popBackStack()
         }
-
         return binding.root
     }
 }

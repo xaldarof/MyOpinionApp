@@ -51,12 +51,15 @@ class FavoriteOpinionItemAdapter(
                     favOpinionItemBinding.typeImageView.setImageResource(R.drawable.sports)
                 }
             }
-            
+
             favOpinionItemBinding.shareImageView.setOnClickListener {
                 onClickListener.onClickShare(favoriteOpinionEntity, position)
             }
             favOpinionItemBinding.writeCommentBtn.setOnClickListener {
                 onClickListener.onClickComment(favoriteOpinionEntity,position)
+            }
+            favOpinionItemBinding.deleteBtn.setOnClickListener {
+                onClickListener.onClickDelete(favoriteOpinionEntity,position)
             }
         }
     }
@@ -78,5 +81,7 @@ class FavoriteOpinionItemAdapter(
         fun onClickShare(opinion: FavoriteOpinionEntity, position: Int)
 
         fun onClickComment(opinion: FavoriteOpinionEntity, position: Int)
+
+        fun onClickDelete(opinion: FavoriteOpinionEntity,position: Int)
     }
 }

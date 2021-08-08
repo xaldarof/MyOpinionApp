@@ -11,4 +11,8 @@ class FavoriteOpinionDataSource(private val favoriteOpinionCacheDataSource: Favo
     override fun getFavoriteOpinions(): RealmResults<FavoriteOpinionEntity> {
         return favoriteOpinionCacheDataSource.getFavoriteOpinions()
     }
+
+    override fun deleteFavoriteOpinion(opinionEntity: FavoriteOpinionEntity, position: Int) {
+        favoriteOpinionCacheDataSource.deleteFavoriteOpinion(opinionEntity,position)
+    }
 }

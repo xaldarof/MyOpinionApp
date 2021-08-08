@@ -7,4 +7,6 @@ interface FavoriteOpinionCacheService {
     fun saveOpinionToFavorites(favoriteOpinionEntity: FavoriteOpinionEntity)
 
     fun getFavoriteOpinions():RealmResults<FavoriteOpinionEntity>
+
+    fun deleteFavoriteOpinion(opinionEntity: FavoriteOpinionEntity,position:Int)
 }
