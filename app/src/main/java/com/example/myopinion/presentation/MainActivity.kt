@@ -54,7 +54,6 @@ class MainActivity : AppCompatActivity() {
             fm.beginTransaction().replace(R.id.layout,searchFragment).addToBackStack(null).commit()
         }
 
-
         binding.toolBarMain.notifications.setOnClickListener {
             fm.beginTransaction().replace(R.id.layout,notificationFragment).addToBackStack(null).commit()
         }

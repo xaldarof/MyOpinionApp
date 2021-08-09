@@ -7,13 +7,13 @@ import android.widget.*
 import androidx.appcompat.widget.AppCompatButton
 import com.example.myopinion.R
 import com.example.myopinion.fragments.ProfileFragment
+import com.example.myopinion.models.UserModel
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.ozcanalasalvar.library.view.datePicker.DatePicker
 import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.collections.HashMap
 
 
 private class FormattedDate {

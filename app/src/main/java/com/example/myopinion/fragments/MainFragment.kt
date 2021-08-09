@@ -10,15 +10,14 @@ import com.example.myopinion.R
 import com.example.myopinion.databinding.FragmentMainBinding
 import com.example.myopinion.helpers.BundleSender
 import com.example.myopinion.helpers.BundleSenderProvider
-import com.example.myopinion.helpers.MainFragmentAdapterHelper
-import com.example.myopinion.helpers.MainFragmentAdapterProvider
+import com.example.myopinion.adapters.helpers.MainFragmentAdapterHelper
+import com.example.myopinion.adapters.helpers.MainFragmentAdapterProvider
 import com.example.myopinion.models.Opinion
 import com.example.myopinion.repository.Status
 import com.example.myopinion.tools.ProgressChecker.Companion.check
 import com.example.myopinion.tools.TopSnackBarShower
 import com.example.myopinion.viewmodel.MainViewModel
 import com.example.myopinion.viewmodel.ViewModelFactory
-import io.realm.Realm
 
 class MainFragment : Fragment() {
 

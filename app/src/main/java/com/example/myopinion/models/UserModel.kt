@@ -1,4 +1,4 @@
-package com.example.myopinion.helpers
+package com.example.myopinion.models
 
 import java.io.Serializable
 

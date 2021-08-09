@@ -1,10 +1,11 @@
-package com.example.myopinion.helpers
+package com.example.myopinion.adapters.helpers
 
 import android.app.Activity
 import android.content.Intent
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myopinion.adapters.MyOpinionsItemAdapter
+import com.example.myopinion.helpers.BundleSender
 import com.example.myopinion.repository.entity.OpinionEntity
 import io.realm.RealmResults
 

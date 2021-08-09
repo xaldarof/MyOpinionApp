@@ -1,6 +1,7 @@
-package com.example.myopinion.helpers
+package com.example.myopinion.adapters.helpers
 
-class MyOpinionAdapterHelper(private val myOpinionsAdapterHelperProvider: MyOpinionsAdapterHelperProvider) : MyAdapterService {
+class MyOpinionAdapterHelper(private val myOpinionsAdapterHelperProvider: MyOpinionsAdapterHelperProvider) :
+    MyAdapterService {
     override fun initAdapter() {
         myOpinionsAdapterHelperProvider.initAdapter()
     }

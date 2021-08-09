@@ -8,8 +8,8 @@ import androidx.fragment.app.Fragment
 import com.example.myopinion.databinding.FragmentSavedBinding
 import com.example.myopinion.helpers.BundleSender
 import com.example.myopinion.helpers.BundleSenderProvider
-import com.example.myopinion.helpers.FavoriteFragmentAdapterServiceHelper
-import com.example.myopinion.helpers.FavoriteOpinionAdapterServiceImpl
+import com.example.myopinion.adapters.helpers.FavoriteFragmentAdapterServiceHelper
+import com.example.myopinion.adapters.helpers.FavoriteOpinionAdapterServiceImpl
 import com.example.myopinion.repository.FavoriteOpinionCacheDataSource
 import com.example.myopinion.repository.FavoriteOpinionDataSource
 import io.realm.Realm
@@ -30,8 +30,10 @@ class SavedFragment : Fragment() {
         val list = favoriteOpinionDataSource.getFavoriteOpinions()
 
 
-        val favoriteOpinionAdapterImpl = FavoriteOpinionAdapterServiceImpl(FavoriteFragmentAdapterServiceHelper(favoriteOpinionDataSource,
-            list,bundleSender,requireActivity(),this,binding.rv))
+        val favoriteOpinionAdapterImpl = FavoriteOpinionAdapterServiceImpl(
+            FavoriteFragmentAdapterServiceHelper(favoriteOpinionDataSource,
+            list,bundleSender,requireActivity(),this,binding.rv)
+        )
         favoriteOpinionAdapterImpl.initAdapter()
 
 

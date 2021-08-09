@@ -1,6 +1,7 @@
-package com.example.myopinion.helpers
+package com.example.myopinion.adapters.helpers
 
-class MainFragmentAdapterHelper(private val mainFragmentAdapterProvider: MainFragmentAdapterProvider) : MainFragmentAdapterService {
+class MainFragmentAdapterHelper(private val mainFragmentAdapterProvider: MainFragmentAdapterProvider) :
+    MainFragmentAdapterService {
     override fun initAdapter() {
         mainFragmentAdapterProvider.initAdapter()
     }

@@ -9,8 +9,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.myopinion.databinding.FragmentMyOpinionsBinding
 import com.example.myopinion.helpers.BundleSender
 import com.example.myopinion.helpers.BundleSenderProvider
-import com.example.myopinion.helpers.MyOpinionAdapterHelper
-import com.example.myopinion.helpers.MyOpinionsAdapterHelperProvider
+import com.example.myopinion.adapters.helpers.MyOpinionAdapterHelper
+import com.example.myopinion.adapters.helpers.MyOpinionsAdapterHelperProvider
 import com.example.myopinion.viewmodel.MyOpinionsFragmentViewModel
 import com.example.myopinion.viewmodel.MyOpinionsViewModelFactory
 import io.realm.Realm

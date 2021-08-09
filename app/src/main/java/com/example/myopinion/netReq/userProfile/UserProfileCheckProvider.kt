@@ -3,10 +3,7 @@ package com.example.myopinion.netReq.userProfile
 import android.os.Looper
 import android.util.Log
 import android.widget.ImageView
-import com.example.myopinion.helpers.UserModel
-import com.example.myopinion.models.Opinion
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
 import com.squareup.picasso.Picasso
 import jp.wasabeef.picasso.transformations.CropCircleTransformation
