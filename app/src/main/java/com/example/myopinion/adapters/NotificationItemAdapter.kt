@@ -16,7 +16,7 @@ class NotificationItemAdapter(private val list: List<Notification>) : RecyclerVi
             notificationItemBinding.tvDate.text = notification.date
             notificationItemBinding.tvTitle.text = notification.title
             if (notification.image.isNotEmpty()){
-                Picasso.get().load(notification.image).transform(CropCircleTransformation()).into(notificationItemBinding.image)
+                Picasso.get().load(notification.image).into(notificationItemBinding.image)
             }
         }
     }

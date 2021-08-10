@@ -24,4 +24,9 @@
         <item name="android:background">@drawable/bottom_layout_style</item>
     </style>
 
+    <style name="roundedImage" parent="">
+        <item name="cornerRadius">5dp</item>
+        <item name="cornerFamily">rounded</item>
+    </style>
+
 </resources>

@@ -11,6 +11,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
+        android:padding="8dp"
         android:layout_height="match_parent">
 
         <ImageView
@@ -20,19 +21,16 @@
             android:layout_height="60dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginLeft="10dp" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tvTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
-            android:layout_marginLeft="12dp"
             android:layout_marginTop="4dp"
             android:maxLength="35"
             android:layout_toEndOf="@+id/image"
-            android:layout_toRightOf="@+id/image"
             android:text="@string/soon_update"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/image"
@@ -56,7 +54,7 @@
             android:layout_marginLeft="12dp"
             android:layout_marginTop="32dp"
             android:textStyle="bold"
-            android:text="Самая лучшая обновления на свете и всегда был чмто ьов бвцвлщцвлцщ щц лщ цлвщ лцщвлцщвлцщлвщ цл щлвщцлвщцлв щцлщ влцщ лц."
+            android:text="Здраствуйте, на следующей неделе у нас будет обновление системы. Добавис новый функционал для вас и для вашего удобства. Спасибо за внимание !"
             android:textColor="@color/black"
             app:layout_constraintStart_toEndOf="@+id/image"
             app:layout_constraintTop_toTopOf="parent"

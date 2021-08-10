@@ -32,6 +32,9 @@ class NotificationFragment : Fragment() {
             notificationItemAdapter.notifyDataSetChanged()
             binding.progressBar.check(list)
         })
+        binding.toolBar.backBtn.setOnClickListener {
+            parentFragmentManager.popBackStack()
+        }
 
 
         binding.rv.adapter = notificationItemAdapter

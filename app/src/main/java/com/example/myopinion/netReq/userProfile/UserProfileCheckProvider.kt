@@ -24,10 +24,10 @@ class UserProfileCheckProvider (private var firebaseAuth: FirebaseAuth,
                 val userPhoto = snapshot.child(currentUser!!.uid).child("profileImage").value
                 Log.d("image",userPhoto.toString())
 
-                Picasso.get().load(userPhoto.toString()).transform(CropCircleTransformation())
+                Picasso.get().load(userPhoto.toString()).fit()
                     .into(profileImageView)
                 android.os.Handler(Looper.myLooper()!!).postDelayed({
-                    Picasso.get().load(userPhoto.toString()).transform(CropCircleTransformation())
+                    Picasso.get().load(userPhoto.toString()).fit()
                         .into(profileImageView)
                 }, 5000)
             }

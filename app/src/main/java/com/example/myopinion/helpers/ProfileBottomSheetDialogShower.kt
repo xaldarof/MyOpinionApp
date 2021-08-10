@@ -67,13 +67,13 @@ class ProfileBottomSheetDialogShower(
                     val imageValue = snapshot.child(firebaseAuth.currentUser!!.uid).child("profileImage").value
                     val user = UserModel(name.text.toString(),surname.text.toString(),hobby.text.toString(),birthDay,dateOfRegister,imageValue.toString(),firebaseAuth.currentUser!!.uid)
                     saveUserToFireBase(user,firebaseAuth.currentUser!!.uid)
+                    bottomSheetDialog.dismiss()
                 }
 
                 override fun onCancelled(error: DatabaseError) {
 
                 }
             })
-
         }
         bottomSheetDialog.setContentView(view)
         bottomSheetDialog.show()

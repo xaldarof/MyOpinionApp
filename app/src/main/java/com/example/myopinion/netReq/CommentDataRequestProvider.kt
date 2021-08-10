@@ -9,6 +9,7 @@ import com.example.myopinion.tools.FormattedDate
 import com.example.myopinion.utils.KeyWords
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import java.util.*
 
 class CommentDataRequestProvider(private val context: Context, private val fragment: Fragment) : CommentService{
 
@@ -23,7 +24,6 @@ class CommentDataRequestProvider(private val context: Context, private val fragm
         val postId = fragment.requireArguments().getString("postId").toString()
         val comment = editText.text.toString()
         val pushId = reference.push().key.toString()
-        val img = "https://image.flaticon.com/icons/png/512/3296/3296116.png"
 
         val databaseForCommentImage: FirebaseDatabase = FirebaseDatabase.getInstance()
         val referenceForCommentImage: DatabaseReference = databaseForCommentImage.getReference("users")
@@ -36,8 +36,11 @@ class CommentDataRequestProvider(private val context: Context, private val fragm
 
                 Log.d("image",image)
                 reference.child(postId).child(KeyWords.COMMENT_PATH).child(pushId)
-                    .setValue(Comment(formattedDate, comment,img,pushId,currentUser?.displayName.toString()))
-                //  .setValue(Comment(formattedDate, comment,image,pushId,currentUser?.displayName.toString()))
+                    .setValue(Comment(
+                        formattedDate,
+                        comment,
+                        currentUser!!.email.toString().uppercase(Locale.getDefault()),
+                        pushId,currentUser?.displayName.toString()))
             }
 
             override fun onCancelled(error: DatabaseError) {

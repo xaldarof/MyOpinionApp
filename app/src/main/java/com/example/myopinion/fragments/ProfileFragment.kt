@@ -60,7 +60,9 @@ class ProfileFragment : Fragment() {
 
         val userProfileInfo = UserProfileInfo(UserProfileInfoCheckProvider(firebaseAuth,referenceFirebaseDatabase,firebaseDatabase,favoriteOpinionDataSource))
         userProfileInfo.getUserInfoFromDb().observe(requireActivity(),{
-            binding.tvName.text = it.name
+            binding.tvName.text = it.name.plus(" ${it.surname}")
+            binding.tvDateOfRegister.text = it.dateOfRegister
+            binding.tvEmail.text = user!!.email
         })
         binding.tvFavoritesCount.text = userProfileInfo.getUserDataSize().toString()
 

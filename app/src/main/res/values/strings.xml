@@ -22,6 +22,9 @@
     <string name="forWhomMain">Для кого это мнения :</string>
     <string name="dateMain">Дата мнении :</string>
     <string name="bodyMain">Текст :</string>
+    <string name="userAnonym">Пользователь</string>
+    <string name="sentForAnalyze">Отправлено к проверке</string>
+    <string name="copied">Скопировано в буфер обмена</string>
 
 
     <string name="life">Жизнь</string>
@@ -43,20 +46,24 @@
     <string name="your_profile">Ваш профиль</string>
 
 
-    <string name="inValidInput">Пожалуйста заполните все поля.</string>
+    <string name="inValidInput">Пожалуйста, заполните все поля.</string>
     <string name="registration">Зарегистрироваться.</string>
-    <string name="create_to_continue">Создайте аккаунт чтобы продолжить.</string>
+    <string name="create_to_continue">Создайте аккаунт, чтобы продолжить.</string>
     <string name="welcomeSignIN">Добро пожаловать !</string>
     <string name="loginHint">Логин</string>
     <string name="loginBtnText">Войти</string>
     <string name="create_with_google">Создать через Google</string>
     <string name="password_hint">Пароль</string>
     <string name="searchingItem">Поиск...</string>
-    <string name="notes">Уведомлении</string>
+    <string name="notes">Новости</string>
     <string name="soon_update">Скоро обновление</string>
     <string name="addComment">Оставить коментарии</string>
     <string name="my_opinions_toolbar_tv">Мои мнении</string>
     <string name="all_opinions">Все мнении : </string>
     <string name="fill_data_text">Заполнить данные</string>
+    <string name="sign_in_for_continue">Войдите, чтобы продолжить.</string>
+    <string name="date_of_registration">Дата регистрации:</string>
+    <string name="report_tv">Сообщить</string>
+    <string name="copt_tv">Скопировать</string>
 
 </resources>
