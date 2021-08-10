@@ -8,7 +8,11 @@ import com.google.firebase.database.*
 import com.squareup.picasso.Picasso
 import jp.wasabeef.picasso.transformations.CropCircleTransformation
 
-class UserProfileCheckProvider (private var firebaseAuth: FirebaseAuth,private var reference: DatabaseReference,private var firebaseDatabase: FirebaseDatabase,private val profileImageView: ImageView) : UserProfileCheckService {
+class UserProfileCheckProvider (private var firebaseAuth: FirebaseAuth,
+                                private var reference: DatabaseReference,
+                                private var firebaseDatabase: FirebaseDatabase,
+                                private val profileImageView: ImageView) : UserProfileCheckService {
+
     override fun initProfilePhoto() {
         firebaseDatabase = FirebaseDatabase.getInstance()
         reference = firebaseDatabase.getReference("users")

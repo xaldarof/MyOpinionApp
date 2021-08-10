@@ -6,11 +6,10 @@
     android:layout_height="wrap_content"
     android:layout_margin="10dp"
     android:background="@drawable/success_dialog"
-    android:elevation="3dp"
+    android:elevation="2dp"
     tools:ignore="UnusedAttribute">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="6dp"
@@ -18,6 +17,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Читать дальше..."
+            android:textColor="@color/green"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <TextView
             android:id="@+id/writeCommentBtn"
@@ -87,7 +96,6 @@
             android:layout_margin="5dp"
             android:textStyle="bold"
             android:textColor="@color/black"
-            android:fontFamily="monospace"
             android:text="@string/short_description"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/guideline4" />

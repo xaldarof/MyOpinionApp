@@ -21,7 +21,7 @@ private class FormattedDate {
         @SuppressLint("SimpleDateFormat")
         private val date = Date()
         @SuppressLint("SimpleDateFormat")
-        fun formatted(): String = SimpleDateFormat("dd/mm/yyyy").format(date)
+        fun formatted(): String = SimpleDateFormat("dd/MM/yyyy").format(date)
 
     }
 }
@@ -58,6 +58,7 @@ class ProfileBottomSheetDialogShower(
         }
 
         dateEditText.setText(dateOfRegister)
+        dateEditText.isEnabled = false
         val button = view.findViewById<AppCompatButton>(R.id.buttonSave)
 
         button.setOnClickListener {

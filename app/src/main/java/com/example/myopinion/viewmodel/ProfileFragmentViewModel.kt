@@ -1,13 +1,11 @@
 package com.example.myopinion.viewmodel
 
-import android.app.Activity
-import android.content.Context
 import android.graphics.Bitmap
-import android.net.Uri
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.myopinion.netReq.userProfile.UserProfileChanger
-import com.example.myopinion.netReq.userProfile.UserProfileChangerProvider
+import com.example.myopinion.models.UserModel
+import com.example.myopinion.netReq.userProfile.*
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase

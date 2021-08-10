@@ -35,14 +35,14 @@ class FavoriteFragmentAdapterServiceHelper (private val favoriteOpinionDataSourc
 
             override fun onClickDelete(opinion: FavoriteOpinionEntity, position: Int) {
                 favoriteOpinionDataSource.deleteFavoriteOpinion(opinion,position)
-                notifyDataSetChanged()
+                notifyDataSetChanged(position)
             }
         },fragment.requireContext())
         recyclerView.adapter = favOpinionsItemAdapter
 
     }
 
-    override fun notifyDataSetChanged() {
-        favOpinionsItemAdapter.notifyDataSetChanged()
+    override fun notifyDataSetChanged(position:Int) {
+        favOpinionsItemAdapter.notifyItemRemoved(position)
     }
 }

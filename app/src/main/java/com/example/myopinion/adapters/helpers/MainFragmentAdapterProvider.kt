@@ -1,12 +1,15 @@
 package com.example.myopinion.adapters.helpers
 
 import android.content.Context
+import android.content.Intent
+import android.util.Log
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myopinion.adapters.ItemAdapter
 import com.example.myopinion.helpers.BundleSender
 import com.example.myopinion.models.Opinion
+import com.example.myopinion.presentation.ReadingActivity
 import com.example.myopinion.repository.FavoriteOpinionCacheDataSource
 import com.example.myopinion.repository.FavoriteOpinionDataSource
 import com.example.myopinion.repository.OpinionToFavoriteOpinionEntity
@@ -37,6 +40,13 @@ class MainFragmentAdapterProvider(private val list: List<Opinion>, private val c
 
             override fun onClickComment(opinion: Opinion, position: Int) {
                 bundleSender.sendBundle(fragment, opinion.postId)
+            }
+
+            override fun onClickRead(body: String, shortDescription: String) {
+                val intent = Intent(context, ReadingActivity::class.java)
+                intent.putExtra("body",body)
+                intent.putExtra("description",shortDescription)
+                context.startActivity(intent)
             }
         }, context)
         recyclerView.adapter = itemAdapter

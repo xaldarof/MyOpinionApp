@@ -54,6 +54,9 @@ class ItemAdapter(
             itemBinding.writeCommentBtn.setOnClickListener {
                 onClickListener.onClickComment(opinion,position)
             }
+            itemBinding.layout.setOnClickListener {
+                onClickListener.onClickRead(opinion.body,opinion.shortDescription)
+            }
         }
     }
 
@@ -74,5 +77,7 @@ class ItemAdapter(
         fun onClickSave(opinion: Opinion, position: Int)
 
         fun onClickComment(opinion: Opinion, position: Int)
+
+        fun onClickRead(body:String,shortDescription:String)
     }
 }

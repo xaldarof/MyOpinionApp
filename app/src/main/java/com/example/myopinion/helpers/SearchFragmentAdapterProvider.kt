@@ -1,11 +1,14 @@
 package com.example.myopinion.helpers
 
 import android.content.Context
+import android.content.Intent
+import android.util.Log
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myopinion.adapters.SearchFragmentItemAdapter
 import com.example.myopinion.models.Opinion
+import com.example.myopinion.presentation.ReadingActivity
 
 class SearchFragmentAdapterProvider(private val list: List<Opinion>, private val context: Context,
                                     private val fragment: Fragment, private val recyclerView: RecyclerView,
@@ -22,6 +25,14 @@ class SearchFragmentAdapterProvider(private val list: List<Opinion>, private val
 
             override fun onClickComment(opinion: Opinion, position: Int) {
                 bundleSender.sendBundle(fragment, opinion.postId)
+            }
+
+            override fun onClickRead(body: String, shortDescription: String) {
+                val intent = Intent(context,ReadingActivity::class.java)
+                intent.putExtra("body",body)
+                intent.putExtra("description",shortDescription)
+                context.startActivity(intent)
+                Log.d("11","WORK")
             }
         }, context)
         recyclerView.adapter = searchFragmentItemAdapter

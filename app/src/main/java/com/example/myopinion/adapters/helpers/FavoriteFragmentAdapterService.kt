@@ -4,6 +4,6 @@ interface FavoriteFragmentAdapterService {
 
     fun initAdapter()
 
-    fun notifyDataSetChanged()
+    fun notifyDataSetChanged(position:Int)
 
 }

@@ -20,14 +20,15 @@ class MainActivity : AppCompatActivity() {
     private lateinit var fragmentAdapter: FragmentAdapter
     private lateinit var binding: ActivityMainBinding
     private val firebaseFirestore = FirebaseFirestore.getInstance()
-    private val notificationCounter = NotificationCounter(NotificationCounterProvider(firebaseFirestore))
+    private val notificationCounter =
+        NotificationCounter(NotificationCounterProvider(firebaseFirestore))
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        notificationCounter.getCount().observe(this,{
+        notificationCounter.getCount().observe(this, {
             binding.toolBarMain.badge.setNumber(it.size)
         })
 
@@ -48,14 +49,16 @@ class MainActivity : AppCompatActivity() {
             fm.beginTransaction().replace(R.id.layout, savedFragment).addToBackStack(null).commit()
         }
         binding.toolBarMain.myProfile.setOnClickListener {
-            fm.beginTransaction().replace(R.id.layout, profileFragment).addToBackStack(null).commit()
+            fm.beginTransaction().replace(R.id.layout, profileFragment).addToBackStack(null)
+                .commit()
         }
         binding.toolBarMain.search.setOnClickListener {
-            fm.beginTransaction().replace(R.id.layout,searchFragment).addToBackStack(null).commit()
+            fm.beginTransaction().replace(R.id.layout, searchFragment).addToBackStack(null).commit()
         }
 
         binding.toolBarMain.notifications.setOnClickListener {
-            fm.beginTransaction().replace(R.id.layout,notificationFragment).addToBackStack(null).commit()
+            fm.beginTransaction().replace(R.id.layout, notificationFragment).addToBackStack(null)
+                .commit()
         }
     }
 

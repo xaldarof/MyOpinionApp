@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.provider.MediaStore
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -16,7 +17,11 @@ import com.example.myopinion.databinding.FragmentProfileBinding
 import com.example.myopinion.helpers.ProfileBottomSheetDialogShower
 import com.example.myopinion.netReq.userProfile.UserProfileCheckProvider
 import com.example.myopinion.netReq.userProfile.UserProfileChecker
+import com.example.myopinion.netReq.userProfile.UserProfileInfo
+import com.example.myopinion.netReq.userProfile.UserProfileInfoCheckProvider
 import com.example.myopinion.presentation.registration.RegisterActivity
+import com.example.myopinion.repository.FavoriteOpinionCacheDataSource
+import com.example.myopinion.repository.FavoriteOpinionDataSource
 import com.example.myopinion.utils.KeyNums
 import com.example.myopinion.viewmodel.ProfileFragmentViewModel
 import com.example.myopinion.viewmodel.ProfileViewModelFactory
@@ -24,6 +29,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import io.realm.Realm
 
 
 class ProfileFragment : Fragment() {
@@ -34,6 +40,8 @@ class ProfileFragment : Fragment() {
     private lateinit var userProfileChecker: UserProfileChecker
     private lateinit var firebaseDatabase : FirebaseDatabase
     private lateinit var referenceFirebaseDatabase : DatabaseReference
+    private val realm = Realm.getDefaultInstance()
+    private val favoriteOpinionDataSource = FavoriteOpinionDataSource(FavoriteOpinionCacheDataSource(realm))
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -50,8 +58,15 @@ class ProfileFragment : Fragment() {
         userProfileChecker = UserProfileChecker(UserProfileCheckProvider(firebaseAuth,referenceFirebaseDatabase,firebaseDatabase,binding.profilePhoto))
         userProfileChecker.initProfilePhoto()
 
+        val userProfileInfo = UserProfileInfo(UserProfileInfoCheckProvider(firebaseAuth,referenceFirebaseDatabase,firebaseDatabase,favoriteOpinionDataSource))
+        userProfileInfo.getUserInfoFromDb().observe(requireActivity(),{
+            binding.tvName.text = it.name
+        })
+        binding.tvFavoritesCount.text = userProfileInfo.getUserDataSize().toString()
+
         return binding.root
     }
+
     private fun initActions(){
         binding.toolBar.backBtn.setOnClickListener {
             parentFragmentManager.popBackStack()
@@ -85,12 +100,15 @@ class ProfileFragment : Fragment() {
                 RESULT_OK -> {
                     val bitmap = data?.extras?.get("data") as Bitmap
                     binding.profilePhoto.setImageBitmap(bitmap)
-                    val viewModel = ViewModelProvider(this, ProfileViewModelFactory(bitmap,firebaseAuth,referenceFirebaseDatabase,firebaseDatabase))[ProfileFragmentViewModel::class.java]
-                    viewModel.changeProfilePhoto()
+                    iniViewModel(bitmap)
                     userProfileChecker = UserProfileChecker(UserProfileCheckProvider(firebaseAuth,referenceFirebaseDatabase,firebaseDatabase,binding.profilePhoto))
                     userProfileChecker.initProfilePhoto()
                 }
             }
         }
+    }
+    private fun iniViewModel(bitmap: Bitmap){
+        val viewModel = ViewModelProvider(this, ProfileViewModelFactory(bitmap,firebaseAuth,referenceFirebaseDatabase,firebaseDatabase))[ProfileFragmentViewModel::class.java]
+        viewModel.changeProfilePhoto()
     }
 }

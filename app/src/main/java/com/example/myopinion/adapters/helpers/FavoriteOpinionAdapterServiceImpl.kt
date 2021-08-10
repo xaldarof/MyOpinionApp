@@ -6,7 +6,7 @@ class FavoriteOpinionAdapterServiceImpl(private val favoriteFragmentAdapterHelpe
         favoriteFragmentAdapterHelper.initAdapter()
     }
 
-    override fun notifyDataSetChanged() {
-        favoriteFragmentAdapterHelper.notifyDataSetChanged()
+    override fun notifyDataSetChanged(position:Int) {
+        favoriteFragmentAdapterHelper.notifyDataSetChanged(position)
     }
 }

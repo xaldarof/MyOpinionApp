@@ -35,13 +35,10 @@ class SearchFragment : Fragment() {
         viewModel.getLiveData().observe(requireActivity(),{
             list.clear()
             when (it.status) {
-                Status.SUCCESS -> { list.addAll(it.data!!)
+                Status.SUCCESS -> {
+                    list.addAll(it.data!!)
                     list.shuffle()
                     searchFragmentAdapter.notifyDataSetChanged()
-                    for (i in 0 until 100){
-                        val random = (0..10).random()
-                        list.add(Opinion("SASASsasasas","SASASsasasas","SASASsasasas","SASASsasasas","$random","SASASsasasas","SASASsasasas","SASASsasasas"))
-                    }
                 }
                 Status.ERROR -> {
                     TopSnackBarShower.show(

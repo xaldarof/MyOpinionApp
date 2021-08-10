@@ -17,23 +17,24 @@
         android:theme="@style/Theme.MyOpinion"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name="com.example.myopinion.presentation.registration.PresentationActivity">
+        <activity
+            android:name=".presentation.ReadingActivity"
+            android:exported="true" />
+        <activity android:name=".presentation.registration.PresentationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.myopinion.presentation.registration.RegisterActivity" />
+        <activity android:name=".presentation.registration.RegisterActivity" />
         <activity android:name=".presentation.SavedOpinionsActivity" />
         <activity android:name=".presentation.WriteOpinionActivity" />
-        <activity android:name=".presentation.MainActivity">
+        <activity android:name=".presentation.MainActivity"></activity>
 
-        </activity>
-        <service
-            android:name=".service.FireBaseMessageService">
+        <service android:name=".service.FireBaseMessageService">
             <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
     </application>
