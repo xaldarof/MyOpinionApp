@@ -42,10 +42,9 @@ class MainFragmentAdapterProvider(private val list: List<Opinion>, private val c
                 bundleSender.sendBundle(fragment, opinion.postId)
             }
 
-            override fun onClickRead(body: String, shortDescription: String) {
+            override fun onClickRead(opinion: Opinion, position: Int) {
                 val intent = Intent(context, ReadingActivity::class.java)
-                intent.putExtra("body",body)
-                intent.putExtra("description",shortDescription)
+                intent.putExtra("opinion",opinion)
                 context.startActivity(intent)
             }
         }, context)

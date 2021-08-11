@@ -99,14 +99,14 @@ class ProfileFragment : Fragment() {
                 RESULT_OK -> {
                     val bitmap = data?.extras?.get("data") as Bitmap
                     binding.profilePhoto.setImageBitmap(bitmap)
-                    iniViewModel(bitmap)
+                    initViewModel(bitmap)
                     userProfileChecker = UserProfileChecker(UserProfileCheckProvider(firebaseAuth,referenceFirebaseDatabase,firebaseDatabase,binding.profilePhoto))
                     userProfileChecker.initProfilePhoto()
                 }
             }
         }
     }
-    private fun iniViewModel(bitmap: Bitmap){
+    private fun initViewModel(bitmap: Bitmap){
         val viewModel = ViewModelProvider(this, ProfileViewModelFactory(bitmap,firebaseAuth,referenceFirebaseDatabase,firebaseDatabase))[ProfileFragmentViewModel::class.java]
         viewModel.changeProfilePhoto()
     }
