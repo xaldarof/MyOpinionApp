@@ -20,6 +20,7 @@ class CommentsCloudDataSource(private val fragment:Fragment) : CommentsService {
                 val children = snapshot.children
                 for (child in children){
                     val value = child.getValue(Comment::class.java)
+
                     if (value!=null) {
                         list.add(value)
                     }

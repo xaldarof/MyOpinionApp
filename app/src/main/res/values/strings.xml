@@ -18,6 +18,7 @@
     <string name="write_here">А вот здесь пишите…</string>
     <string name="exact_theme_opinion">Именно о чем будет идти речь:</string>
     <string name="success">Успешно опубликовано !</string>
+    <string name="success_reported">Скоро мы решим вашу проблему. Ивиняемся за причиненные неудобства !</string>
     <string name="will_continur_theme">Будет идти речь про :</string>
     <string name="forWhomMain">Для кого это мнения :</string>
     <string name="dateMain">Дата мнении :</string>
@@ -46,8 +47,10 @@
     <string name="your_profile">Ваш профиль</string>
 
 
+    <string name="added_to_favorites">Добавлено в избранные</string>
+    <string name="deleted_from_favorites">Удалено из избранных</string>
     <string name="inValidInput">Пожалуйста, заполните все поля.</string>
-    <string name="registration">Зарегистрироваться.</string>
+    <string name="registration">Зарегистрироваться</string>
     <string name="create_to_continue">Создайте аккаунт, чтобы продолжить.</string>
     <string name="welcomeSignIN">Добро пожаловать !</string>
     <string name="loginHint">Логин</string>
@@ -65,5 +68,11 @@
     <string name="date_of_registration">Дата регистрации:</string>
     <string name="report_tv">Сообщить</string>
     <string name="copt_tv">Скопировать</string>
+    <string name="describe_your_problem">Опишите проблему</string>
+    <string name="date_problem">Дата :</string>
+    <string name="from">От :</string>
+    <string name="what_is_problem">В чем проблема ?</string>
+    <string name="report_about_problem">Сообщить о проблеме</string>
+    <string name="send_problem">Отправить</string>
 
 </resources>

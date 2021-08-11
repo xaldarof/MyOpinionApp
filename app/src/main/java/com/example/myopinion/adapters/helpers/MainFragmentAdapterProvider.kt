@@ -2,10 +2,10 @@ package com.example.myopinion.adapters.helpers
 
 import android.content.Context
 import android.content.Intent
-import android.util.Log
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
+import com.example.myopinion.R
 import com.example.myopinion.adapters.ItemAdapter
 import com.example.myopinion.helpers.BundleSender
 import com.example.myopinion.models.Opinion
@@ -33,7 +33,7 @@ class MainFragmentAdapterProvider(private val list: List<Opinion>, private val c
                     FavoriteOpinionEntity()
                 )
                 val mappedOpinionEntity = opinionToFavoriteOpinionEntity.opinionToFavoriteEntity(opinion)
-                Toast.makeText(context, "Saved to favorites", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, context.resources.getString(R.string.added_to_favorites), Toast.LENGTH_SHORT).show()
                 favoriteOpinionDataSource.saveOpinionToFavorites(mappedOpinionEntity)
 
             }

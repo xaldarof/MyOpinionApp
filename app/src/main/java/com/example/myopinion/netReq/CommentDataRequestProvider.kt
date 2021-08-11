@@ -1,7 +1,6 @@
 package com.example.myopinion.netReq
 
 import android.content.Context
-import android.util.Log
 import android.widget.EditText
 import androidx.fragment.app.Fragment
 import com.example.myopinion.models.Comment
@@ -33,14 +32,13 @@ class CommentDataRequestProvider(private val context: Context, private val fragm
                 //we will take image url from user profile
                 image = snapshot.child(currentUser!!.uid).child("profileImage").value.toString()
                 name = snapshot.child(currentUser!!.uid).child("name").value.toString()
-
-                Log.d("image",image)
+               // Log.d("image",image)
                 reference.child(postId).child(KeyWords.COMMENT_PATH).child(pushId)
                     .setValue(Comment(
                         formattedDate,
                         comment,
                         currentUser!!.email.toString().uppercase(Locale.getDefault()),
-                        pushId,currentUser?.displayName.toString()))
+                        pushId,name))
             }
 
             override fun onCancelled(error: DatabaseError) {

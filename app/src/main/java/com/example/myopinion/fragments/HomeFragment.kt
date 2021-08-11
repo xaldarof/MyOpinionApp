@@ -1,14 +1,11 @@
 package com.example.myopinion.fragments
 
-import android.annotation.SuppressLint
-import android.app.Activity
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.example.myopinion.R
-
 import com.example.myopinion.databinding.FragmentHomeBinding
 import com.example.myopinion.helpers.BottomSheetDialogShower
 
@@ -36,6 +33,11 @@ class HomeFragment : Fragment() {
 
         binding.shareBtn.setOnClickListener {
             BottomSheetDialogShower(requireContext(), this).show()
+        }
+
+        binding.reportBtn.setOnClickListener {
+            val reportFragment = ReportFragment()
+           parentFragmentManager.beginTransaction().replace(R.id.layout,reportFragment).addToBackStack(null).commit()
         }
     }
 }

@@ -24,6 +24,13 @@ class ItemAdapter(
             itemBinding.tvType.text = opinion.type
             itemBinding.tvDescription.text = opinion.shortDescription
 
+//            val realm = Realm.getDefaultInstance()
+//            val realmList = realm.where(FavoriteOpinionEntity::class.java).findAll()
+//
+//            if (list[position].postId == realmList[position]!!.postId){
+//                itemBinding.saveImageView.setImageResource(R.drawable.ic_baseline_cloud_done_24)
+//            }
+
             when (opinion.type) {
                 context.resources.getString(R.string.life) -> {
                     itemBinding.typeImageView.setImageResource(R.drawable.life)
