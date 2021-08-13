@@ -29,4 +29,9 @@
         <item name="cornerFamily">rounded</item>
     </style>
 
+    <style name="LabelStyle">
+        <item name="background">@drawable/background_label</item>
+        <item name="android:textColor">@color/blue</item>
+    </style>
+
 </resources>

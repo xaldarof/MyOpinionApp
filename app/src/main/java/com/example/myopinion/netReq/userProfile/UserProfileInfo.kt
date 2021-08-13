@@ -1,10 +1,11 @@
 package com.example.myopinion.netReq.userProfile
 
-import androidx.lifecycle.MutableLiveData
 import com.example.myopinion.models.UserModel
+import kotlinx.coroutines.flow.MutableStateFlow
 
 class UserProfileInfo(private val userProfileInfoCheckProvider: UserProfileInfoCheckProvider):UserProfileCheck {
-    override fun getUserInfoFromDb(): MutableLiveData<UserModel> {
+
+    override suspend fun getUserInfoFromDb(): MutableStateFlow<UserModel> {
         return userProfileInfoCheckProvider.getUserInfoFromDb()
     }
 

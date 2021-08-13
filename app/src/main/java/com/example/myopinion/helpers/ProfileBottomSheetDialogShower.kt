@@ -3,7 +3,8 @@ package com.example.myopinion.helpers
 import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
-import android.widget.*
+import android.widget.EditText
+import android.widget.LinearLayout
 import androidx.appcompat.widget.AppCompatButton
 import com.example.myopinion.R
 import com.example.myopinion.fragments.ProfileFragment
@@ -15,8 +16,7 @@ import com.ozcanalasalvar.library.view.datePicker.DatePicker
 import java.text.SimpleDateFormat
 import java.util.*
 
-
-private class FormattedDate {
+class FormattedDate {
     companion object {
         @SuppressLint("SimpleDateFormat")
         private val date = Date()

@@ -5,10 +5,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.myopinion.models.Opinion
 import com.example.myopinion.netRes.OpinionsCloudDataSource
-import kotlinx.coroutines.*
-import com.example.myopinion.repository.*
 import com.example.myopinion.netRes.OpinionsDataSource
+import com.example.myopinion.repository.Result
 import com.google.firebase.FirebaseException
+import kotlinx.coroutines.launch
 
 class MainViewModel : ViewModel() {
 
@@ -29,7 +29,5 @@ class MainViewModel : ViewModel() {
         }
     }
 
-    fun getLiveData(): MutableLiveData<Result<List<Opinion>>> {
-        return opinionsLiveData
-    }
+    fun getLiveData(): MutableLiveData<Result<List<Opinion>>> = opinionsLiveData
 }

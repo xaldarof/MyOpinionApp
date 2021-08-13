@@ -12,7 +12,7 @@ import com.google.firebase.database.ValueEventListener
 class OpinionsCloudDataSource : OpinionsService {
 
     private val firebaseDatabase = FirebaseDatabase.getInstance()
-    private val reference = firebaseDatabase.getReference(KeyWords.FIREBAE_PATH)
+    private val reference = firebaseDatabase.getReference(KeyWords.FIREBASE_PATH)
     private val opinionLiveData =  MutableLiveData<List<Opinion>>()
     private val opinionList = ArrayList<Opinion>()
 

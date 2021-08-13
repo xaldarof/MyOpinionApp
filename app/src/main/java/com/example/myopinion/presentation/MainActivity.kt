@@ -13,6 +13,7 @@ import com.example.myopinion.netReq.NotificationCounter
 import com.example.myopinion.netReq.NotificationCounterProvider
 import com.example.myopinion.tools.NetworkUtils
 import com.example.myopinion.tools.TopSnackBarShower
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
 class MainActivity : AppCompatActivity() {
@@ -22,11 +23,13 @@ class MainActivity : AppCompatActivity() {
     private val firebaseFirestore = FirebaseFirestore.getInstance()
     private val notificationCounter =
         NotificationCounter(NotificationCounterProvider(firebaseFirestore))
+    private val firebaseAuth = FirebaseAuth.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        val currentUser = firebaseAuth.currentUser
 
         notificationCounter.getCount().observe(this, {
             binding.toolBarMain.badge.setNumber(it.size)
@@ -61,5 +64,4 @@ class MainActivity : AppCompatActivity() {
                 .commit()
         }
     }
-
 }

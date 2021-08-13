@@ -13,7 +13,7 @@ import java.util.*
 class CommentDataRequestProvider(private val context: Context, private val fragment: Fragment) : CommentService{
 
     private var database: FirebaseDatabase = FirebaseDatabase.getInstance()
-    private var reference: DatabaseReference = database.getReference(KeyWords.FIREBAE_PATH)
+    private var reference: DatabaseReference = database.getReference(KeyWords.FIREBASE_PATH)
     private var currentUser = FirebaseAuth.getInstance().currentUser
     private var image = ""
     private var name = ""

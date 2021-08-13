@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/layout"
     android:background="@color/clubHouse"
 
     tools:context=".presentation.ReadingActivity">
@@ -12,12 +13,10 @@
         android:id="@+id/toolBar"
         layout="@layout/reading_toolbar" />
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/toolBar"
-        android:background="@drawable/background_layout">
+        android:layout_below="@+id/toolBar">
 
         <ScrollView
             android:layout_width="match_parent"
@@ -40,6 +39,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
+                    android:textColor="@color/black"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -49,6 +49,33 @@
             </LinearLayout>
         </ScrollView>
 
+        <com.getbase.floatingactionbutton.FloatingActionsMenu
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fab_addButtonColorNormal="@color/green"
+            app:fab_addButtonSize="mini"
+            app:fab_labelStyle="@drawable/background_label"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <com.getbase.floatingactionbutton.FloatingActionButton
+                android:id="@+id/copyBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:fab_colorNormal="@color/green"
+                app:fab_icon="@drawable/ic_baseline_content_copy_24"
+
+                app:fab_size="mini"
+                app:rippleColor="@color/white" />
+
+            <com.getbase.floatingactionbutton.FloatingActionButton
+                android:id="@+id/shareBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:fab_colorNormal="@color/green"
+                app:fab_icon="@drawable/ic_baseline_share_24"
+                app:fab_size="mini" />
+    </com.getbase.floatingactionbutton.FloatingActionsMenu>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

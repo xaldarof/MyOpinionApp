@@ -8,7 +8,7 @@ import com.google.firebase.database.*
 
 class CommentsCloudDataSource(private val fragment:Fragment) : CommentsService {
     private var database: FirebaseDatabase = FirebaseDatabase.getInstance()
-    private var reference: DatabaseReference = database.getReference(KeyWords.FIREBAE_PATH)
+    private var reference: DatabaseReference = database.getReference(KeyWords.FIREBASE_PATH)
     private val list = ArrayList<Comment>()
     private val commentLiveData =  MutableLiveData<List<Comment>>()
     override fun getComments(): MutableLiveData<List<Comment>> {

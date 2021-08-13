@@ -1,5 +1,6 @@
 package com.example.myopinion.fragments
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,11 +8,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.myopinion.R
+import com.example.myopinion.adapters.helpers.MainFragmentAdapterHelper
+import com.example.myopinion.adapters.helpers.MainFragmentAdapterProvider
 import com.example.myopinion.databinding.FragmentMainBinding
 import com.example.myopinion.helpers.BundleSender
 import com.example.myopinion.helpers.BundleSenderProvider
-import com.example.myopinion.adapters.helpers.MainFragmentAdapterHelper
-import com.example.myopinion.adapters.helpers.MainFragmentAdapterProvider
 import com.example.myopinion.models.Opinion
 import com.example.myopinion.repository.Status
 import com.example.myopinion.tools.ProgressChecker.Companion.check
@@ -25,6 +26,7 @@ class MainFragment : Fragment() {
     private lateinit var list: ArrayList<Opinion>
     private val bundleSender = BundleSender(BundleSenderProvider())
 
+    @SuppressLint("ClickableViewAccessibility")
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
 
         binding = FragmentMainBinding.inflate(inflater, container, false)

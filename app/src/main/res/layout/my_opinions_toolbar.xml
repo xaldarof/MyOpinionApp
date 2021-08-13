@@ -57,6 +57,16 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+        <com.skydoves.elasticviews.ElasticImageView
+            android:id="@+id/clearBtn"
+            app:imageView_duration="100"
+            android:layout_width="wrap_content"
+            android:src="@drawable/ic_baseline_delete_24"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="10dp"
+            android:tint="@color/green"
+            android:layout_centerInParent="true"
+            android:layout_height="wrap_content"/>
 
     </RelativeLayout>
 

@@ -27,6 +27,10 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import io.realm.Realm
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 
 
 class ProfileFragment : Fragment() {
@@ -56,11 +60,13 @@ class ProfileFragment : Fragment() {
         userProfileChecker.initProfilePhoto()
 
         val userProfileInfo = UserProfileInfo(UserProfileInfoCheckProvider(firebaseAuth,referenceFirebaseDatabase,firebaseDatabase,favoriteOpinionDataSource))
-        userProfileInfo.getUserInfoFromDb().observe(requireActivity(),{
-            binding.tvName.text = it.name.plus(" ${it.surname}")
-            binding.tvDateOfRegister.text = it.dateOfRegister
-            binding.tvEmail.text = user!!.email
-        })
+        CoroutineScope(Dispatchers.Main).launch {
+            userProfileInfo.getUserInfoFromDb().collect {
+                binding.tvName.text = it.name.plus(" ${it.surname}")
+                binding.tvDateOfRegister.text = it.dateOfRegister
+                binding.tvEmail.text = user!!.email
+            }
+        }
         binding.tvFavoritesCount.text = userProfileInfo.getUserDataSize().toString()
 
         return binding.root

@@ -32,7 +32,7 @@ class OpinionDataRequestProvider(private val binding: ActivityWriteOpinionBindin
 
     override fun sendData() {
         firebaseDatabase = FirebaseDatabase.getInstance()
-        reference = firebaseDatabase.getReference(KeyWords.FIREBAE_PATH)
+        reference = firebaseDatabase.getReference(KeyWords.FIREBASE_PATH)
         firebaseAuth = FirebaseAuth.getInstance()
         val push = reference.push().key
 

@@ -37,6 +37,6 @@ class MyOpinionsAdapterHelperProvider(private val activity: Activity, private va
     }
 
     override fun notifyDataSetChanged() {
-
+        adapter.notifyDataSetChanged()
     }
 }

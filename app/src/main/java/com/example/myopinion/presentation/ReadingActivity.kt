@@ -2,17 +2,27 @@ package com.example.myopinion.presentation
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import com.example.myopinion.databinding.ActivityReadingBinding
+import com.example.myopinion.helpers.ShareTextFormatter
+import com.example.myopinion.helpers.TextCopier
+import com.example.myopinion.helpers.TextShare
+import com.example.myopinion.helpers.TextShareProvider
 import com.example.myopinion.models.Opinion
+import com.example.myopinion.viewmodel.ReadingActivityViewModel
+import com.example.myopinion.viewmodel.ReadingViwModelFactory
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.*
+import com.google.firebase.database.FirebaseDatabase
 
 class ReadingActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityReadingBinding
-    private lateinit var databaseReference: DatabaseReference
-    private lateinit var firebaseDatabase: FirebaseDatabase
-    private lateinit var firebaseAuth: FirebaseAuth
+    private val firebaseDatabase = FirebaseDatabase.getInstance()
+    private val firebaseAuth = FirebaseAuth.getInstance()
+
+    private val textShare = TextShare(TextShareProvider(this))
+    private val shareTextFormatter = ShareTextFormatter()
+    private val textCopier = TextCopier(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,31 +33,37 @@ class ReadingActivity : AppCompatActivity() {
         binding.toolBar.activityTitle.text = intent.title
         binding.bodyTv.text = intent.body
 
-        firebaseDatabase = FirebaseDatabase.getInstance()
-        firebaseAuth = FirebaseAuth.getInstance()
-        databaseReference = firebaseDatabase.getReference("opinion")
+        val viewModel =
+            ViewModelProvider(this, ReadingViwModelFactory(firebaseDatabase, firebaseAuth, intent))
+                .get(ReadingActivityViewModel::class.java)
 
-        val currentUser = firebaseAuth.currentUser?.uid.toString()
-
-        databaseReference.child(intent.postId).child("views").child(currentUser).setValue(" ")
-        val list = ArrayList<String>()
-        databaseReference.child(intent.postId).child("views").addValueEventListener(object :ValueEventListener{
-            override fun onDataChange(snapshot: DataSnapshot) {
-                list.clear()
-                for (value in snapshot.children){
-                    val count = value.getValue(true)
-                    list.add(count.toString())
-                }
-                binding.toolBar.viewCounter.text = list.size.toString()
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-
-            }
-
+        viewModel.getViewCountLiveData().observe(this, {
+            binding.toolBar.viewCounter.text = it.size.toString()
         })
+
         binding.toolBar.backBtn.setOnClickListener {
             finish()
         }
+
+        binding.shareBtn.setOnClickListener {
+            shareText(intent.date)
+        }
+        binding.copyBtn.setOnClickListener {
+            copyTextBody()
+        }
+    }
+
+    private fun copyTextBody() {
+        textCopier.copyThisText(binding.bodyTv.text.toString())
+    }
+
+    private fun shareText(date: String) {
+        textShare.shareThisText(
+            shareTextFormatter.formatForShare(
+                binding.toolBar.activityTitle.text.toString(),
+                binding.bodyTv.text.toString(),
+                date
+            )
+        )
     }
 }
