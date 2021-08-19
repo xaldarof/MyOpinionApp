@@ -33,7 +33,7 @@
         <activity android:name=".presentation.registration.RegisterActivity" android:screenOrientation="portrait"/>
         <activity android:name=".presentation.SavedOpinionsActivity" />
         <activity android:name=".presentation.WriteOpinionActivity" />
-        <activity android:name=".presentation.MainActivity"></activity>
+        <activity android:name=".presentation.MainActivity"/>
 
         <service android:name=".service.FireBaseMessageService">
             <intent-filter>

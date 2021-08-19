@@ -11,21 +11,23 @@
         android:id="@+id/toolBarMain"
         layout="@layout/toolbar" />
 
-        <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/pager"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/toolBarMain"
-            android:orientation="horizontal">
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolBarMain"
+        android:orientation="horizontal">
 
-        </androidx.viewpager2.widget.ViewPager2>
-        <FrameLayout
-            android:id="@+id/root_container"
-            android:layout_width="match_parent"
-            android:layout_below="@+id/toolBarMain"
-            android:layout_height="match_parent"
-            tools:context=".presentation.MainActivity" />
+    </androidx.viewpager2.widget.ViewPager2>
 
+    <FrameLayout
+        android:id="@+id/root_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolBarMain"
+        tools:context=".presentation.MainActivity" />
 
-
+    <include
+        android:id="@+id/pinLocker_layout"
+        layout="@layout/lock_screen" />
 </RelativeLayout>

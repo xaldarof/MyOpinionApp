@@ -122,10 +122,10 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_margin="14dp"
+        android:background="@drawable/success_dialog"
+        android:clickable="true"
         android:elevation="1dp"
         android:focusable="true"
-        android:clickable="true"
-        android:background="@drawable/success_dialog"
         app:layout_constraintHeight_percent="0.1"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout8">
 
@@ -135,8 +135,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_centerInParent="true"
-            android:fontFamily="@font/font_monserat"
             android:layout_marginStart="14dp"
+            android:fontFamily="@font/font_monserat"
             android:text="Сохранненые данные :"
             android:textColor="@color/black"
             android:textSize="18sp"
@@ -167,6 +167,44 @@
 
     </RelativeLayout>
 
+    <RelativeLayout
+        android:id="@+id/setPasswordBtn"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="14dp"
+        android:background="@drawable/success_dialog"
+        android:clickable="true"
+        android:elevation="1dp"
+        android:focusable="true"
+        app:layout_constraintHeight_percent="0.1"
+        app:layout_constraintTop_toBottomOf="@+id/readSavedBtn">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="14dp"
+            android:fontFamily="@font/font_monserat"
+            android:text="Пароль :"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switchPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerInParent="true"
+            android:layout_marginEnd="14dp"
+            android:thumb="@drawable/switch_thumb"
+            app:track="@drawable/switch_track" />
+
+    </RelativeLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

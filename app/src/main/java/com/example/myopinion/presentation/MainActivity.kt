@@ -1,18 +1,22 @@
 package com.example.myopinion.presentation
 
+import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentManager
 import com.example.myopinion.R
 import com.example.myopinion.adapters.FragmentAdapter
 import com.example.myopinion.databinding.ActivityMainBinding
-import com.example.myopinion.fragments.NotificationFragment
-import com.example.myopinion.fragments.ProfileFragment
-import com.example.myopinion.fragments.SavedFragment
-import com.example.myopinion.fragments.SearchFragment
+import com.example.myopinion.fragments.*
 import com.example.myopinion.netReq.NotificationCounter
 import com.example.myopinion.netReq.NotificationCounterProvider
+import com.example.myopinion.repository.Password
+import com.example.myopinion.repository.PasswordChecker
 import com.example.myopinion.tools.NetworkUtils
 import com.example.myopinion.tools.TopSnackBarShower
+import com.example.myopinion.utils.PinLocker
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -30,6 +34,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         val currentUser = firebaseAuth.currentUser
+        val passwordChecker = PasswordChecker(this,binding)
+        passwordChecker.check()
 
         if (!NetworkUtils.isNetworkAvailable(this)) {
             TopSnackBarShower.show(binding.layout, this, resources.getString(R.string.noInternet))
@@ -45,14 +51,16 @@ class MainActivity : AppCompatActivity() {
         val fm = supportFragmentManager
 
         binding.toolBarMain.saved.setOnClickListener {
-            fm.beginTransaction().replace(R.id.layout, savedFragment).addToBackStack(null).commit()
+            fm.beginTransaction().replace(R.id.layout, savedFragment).addToBackStack(null)
+                .commit()
         }
         binding.toolBarMain.myProfile.setOnClickListener {
             fm.beginTransaction().replace(R.id.layout, profileFragment).addToBackStack(null)
                 .commit()
         }
         binding.toolBarMain.search.setOnClickListener {
-            fm.beginTransaction().replace(R.id.layout, searchFragment).addToBackStack(null).commit()
+            fm.beginTransaction().replace(R.id.layout, searchFragment).addToBackStack(null)
+                .commit()
         }
 
         binding.toolBarMain.notifications.setOnClickListener {
@@ -60,4 +68,4 @@ class MainActivity : AppCompatActivity() {
                 .commit()
         }
     }
-}
+ }

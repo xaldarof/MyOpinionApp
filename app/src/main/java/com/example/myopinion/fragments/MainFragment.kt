@@ -43,7 +43,6 @@ class MainFragment : Fragment() {
                 Status.SUCCESS -> { list.addAll(it.data!!)
                     list.shuffle()
                     mainFragmentAdapterHelper.notifyDataSetChanged()
-                    binding.progressBar.check(list)
                     binding.shimmerLayout.stopShimmer()
                     binding.shimmerLayout.visibility = View.GONE
                 }

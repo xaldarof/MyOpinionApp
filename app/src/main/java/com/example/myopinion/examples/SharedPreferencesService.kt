@@ -3,6 +3,7 @@ package com.example.myopinion.examples
 import android.content.Context
 import android.content.Context.MODE_PRIVATE
 import android.content.SharedPreferences
+import android.text.TextWatcher
 
 interface SharedPreferencesService<T> {
 

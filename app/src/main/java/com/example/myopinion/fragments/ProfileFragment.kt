@@ -1,13 +1,17 @@
 package com.example.myopinion.fragments
 
+import android.app.Activity.MODE_PRIVATE
 import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.graphics.Bitmap
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CompoundButton
+import android.widget.RadioGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.myopinion.R
@@ -20,6 +24,7 @@ import com.example.myopinion.netReq.userProfile.UserProfileInfoCheckProvider
 import com.example.myopinion.presentation.registration.RegisterActivity
 import com.example.myopinion.repository.FavoriteOpinionCacheDataSource
 import com.example.myopinion.repository.FavoriteOpinionDataSource
+import com.example.myopinion.repository.Password
 import com.example.myopinion.utils.KeyNums
 import com.example.myopinion.viewmodel.ProfileFragmentViewModel
 import com.example.myopinion.viewmodel.ProfileViewModelFactory
