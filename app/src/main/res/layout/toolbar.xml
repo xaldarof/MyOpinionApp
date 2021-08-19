@@ -61,20 +61,20 @@
 
 
     </LinearLayout>
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+<!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content">-->
 
-        <com.nex3z.notificationbadge.NotificationBadge
-            android:id="@+id/badge"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.82"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:nbAnimationDuration="100"
-            app:nbAnimationEnabled="true"
-            app:nbMaxTextLength="2" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+<!--        <com.nex3z.notificationbadge.NotificationBadge-->
+<!--            android:id="@+id/badge"-->
+<!--            android:layout_width="28dp"-->
+<!--            android:layout_height="28dp"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintHorizontal_bias="0.82"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            app:nbAnimationDuration="100"-->
+<!--            app:nbAnimationEnabled="true"-->
+<!--            app:nbMaxTextLength="2" />-->
+<!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
 </RelativeLayout>

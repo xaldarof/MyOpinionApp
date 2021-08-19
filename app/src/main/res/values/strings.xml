@@ -27,6 +27,8 @@
     <string name="sentForAnalyze">Отправлено к проверке</string>
     <string name="copied">Скопировано в буфер обмена</string>
 
+    <string name="error_register_input">1) Логин дожен включать в себе (@gmail.com)   2) Пароль должен состоять не менее чем из 7 символов </string>
+
 
     <string name="life">Жизнь</string>
     <string name="Business">Бизнес</string>
@@ -74,5 +76,6 @@
     <string name="what_is_problem">В чем проблема ?</string>
     <string name="report_about_problem">Сообщить о проблеме</string>
     <string name="send_problem">Отправить</string>
+    <string name="read_more">Читать дальше...</string>
 
 </resources>

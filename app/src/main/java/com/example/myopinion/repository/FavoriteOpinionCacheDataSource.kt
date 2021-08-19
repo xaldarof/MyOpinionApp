@@ -22,4 +22,6 @@ class FavoriteOpinionCacheDataSource(private var realm: Realm) : FavoriteOpinion
             opinionEntity.deleteFromRealm()
         }
     }
+
+
 }

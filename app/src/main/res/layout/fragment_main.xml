@@ -2,8 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
     android:id="@+id/layout"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/clubHouse"
     tools:context=".fragments.MainFragment">
@@ -22,6 +22,36 @@
         android:textSize="20sp"
         app:drawableBottomCompat="@drawable/ic_baseline_remove_24" />
 
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmer_layout"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/tv"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <include layout="@layout/shimmer_item"/>
+            <include layout="@layout/shimmer_item"/>
+            <include layout="@layout/shimmer_item"/>
+            <include layout="@layout/shimmer_item"/>
+            <include layout="@layout/shimmer_item"/>
+            <include layout="@layout/shimmer_item"/>
+
+        </LinearLayout>
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:indeterminate="true" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv"
@@ -30,10 +60,4 @@
         android:layout_below="@id/tv"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        android:indeterminate="true"
-        android:layout_width="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_height="wrap_content"/>
 </RelativeLayout>

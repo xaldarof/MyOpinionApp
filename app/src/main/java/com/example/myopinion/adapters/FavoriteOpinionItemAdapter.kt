@@ -61,6 +61,9 @@ class FavoriteOpinionItemAdapter(
             favOpinionItemBinding.deleteBtn.setOnClickListener {
                 onClickListener.onClickDelete(favoriteOpinionEntity,position)
             }
+            favOpinionItemBinding.readBtn.setOnClickListener {
+                onClickListener.onClickRead(favoriteOpinionEntity,position)
+            }
         }
     }
 
@@ -83,5 +86,7 @@ class FavoriteOpinionItemAdapter(
         fun onClickComment(opinion: FavoriteOpinionEntity, position: Int)
 
         fun onClickDelete(opinion: FavoriteOpinionEntity,position: Int)
+
+        fun onClickRead(opinion:FavoriteOpinionEntity,position: Int)
     }
 }

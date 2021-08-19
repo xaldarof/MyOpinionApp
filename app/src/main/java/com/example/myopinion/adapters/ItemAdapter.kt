@@ -64,6 +64,9 @@ class ItemAdapter(
             itemBinding.layout.setOnClickListener {
                 onClickListener.onClickRead(opinion,position)
             }
+            itemBinding.mainLayout.setOnClickListener {
+                onClickListener.onClickRead2(opinion,position)
+            }
         }
     }
 
@@ -86,5 +89,7 @@ class ItemAdapter(
         fun onClickComment(opinion: Opinion, position: Int)
 
         fun onClickRead(opinion:Opinion,position: Int)
+
+        fun onClickRead2(opinion: Opinion,position: Int)
     }
 }

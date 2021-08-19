@@ -9,6 +9,8 @@ import com.example.myopinion.R
 import com.example.myopinion.adapters.FavoriteOpinionItemAdapter
 import com.example.myopinion.databinding.FragmentSavedBinding
 import com.example.myopinion.helpers.BundleSender
+import com.example.myopinion.models.Opinion
+import com.example.myopinion.presentation.ReadingActivity
 import com.example.myopinion.repository.FavoriteOpinionDataSource
 import com.example.myopinion.repository.entity.FavoriteOpinionEntity
 import com.example.myopinion.tools.CommentsChecker.Companion.check
@@ -44,6 +46,15 @@ class FavoriteFragmentAdapterServiceHelper (private val favoriteOpinionDataSourc
                 favoriteOpinionDataSource.deleteFavoriteOpinion(opinion,position)
                 notifyDataSetChanged(position)
                 Toast.makeText(fragment.requireContext(), fragment.requireContext().resources.getString(R.string.deleted_from_favorites), Toast.LENGTH_SHORT).show()
+
+            }
+
+            override fun onClickRead(opinion: FavoriteOpinionEntity, position: Int) {
+                val intent = Intent(fragment.requireContext(), ReadingActivity::class.java)
+                intent.putExtra("opinion",Opinion(opinion.title.toString(),opinion.type.toString(),opinion.username.toString(),
+                    opinion.date.toString(),opinion.shortDescription.toString(),
+                    opinion.exactTheme.toString(),opinion.body.toString(),opinion.postId.toString()))
+                fragment.requireContext().startActivity(intent)
 
             }
         },fragment.requireContext())

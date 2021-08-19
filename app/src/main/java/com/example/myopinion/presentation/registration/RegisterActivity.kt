@@ -5,8 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.myopinion.R
 import com.example.myopinion.databinding.ActivityRegisterBinding
 import com.example.myopinion.fragments.SignInFragment
-import com.example.myopinion.netReq.UserRegister
-import com.example.myopinion.netReq.UserRegisterRequestProvider
+import com.example.myopinion.netReq.UserLogin
+import com.example.myopinion.netReq.UserLoginRequestProvider
 import com.google.firebase.auth.FirebaseAuth
 
 class RegisterActivity : AppCompatActivity() {
@@ -23,8 +23,10 @@ class RegisterActivity : AppCompatActivity() {
 
         binding.loginBtn.setOnClickListener {
             binding.apply {
-                val userRegister = UserRegister(UserRegisterRequestProvider(firebaseAuth,this@RegisterActivity))
-                userRegister.register(loginInputText.text.toString(),passwordInputText.text.toString())
+                if (loginInputText.text.toString().isNotEmpty() && passwordInputText.text.toString().isNotEmpty()) {
+                    val userRegister = UserLogin(UserLoginRequestProvider(firebaseAuth, this@RegisterActivity))
+                    userRegister.login(loginInputText.text.toString(), passwordInputText.text.toString())
+                }
             }
         }
         binding.signInTextBtn.setOnClickListener {

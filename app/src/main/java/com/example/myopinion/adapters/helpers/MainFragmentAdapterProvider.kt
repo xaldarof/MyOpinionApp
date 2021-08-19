@@ -47,6 +47,12 @@ class MainFragmentAdapterProvider(private val list: List<Opinion>, private val c
                 intent.putExtra("opinion",opinion)
                 context.startActivity(intent)
             }
+
+            override fun onClickRead2(opinion: Opinion, position: Int) {
+                val intent = Intent(context, ReadingActivity::class.java)
+                intent.putExtra("opinion",opinion)
+                context.startActivity(intent)
+            }
         }, context)
         recyclerView.adapter = itemAdapter
     }

@@ -6,8 +6,8 @@ import android.widget.Toast
 import com.example.myopinion.presentation.MainActivity
 import com.google.firebase.auth.FirebaseAuth
 
-class UserRegisterRequestProvider(private val firebaseAuth: FirebaseAuth,private val activity: Activity) : UserRegisterService {
-    override fun register(login: String, password: String) {
+class UserLoginRequestProvider(private val firebaseAuth: FirebaseAuth, private val activity: Activity) : UserRegisterService {
+    override fun login(login: String, password: String) {
         if (login.isNotEmpty() && password.isNotEmpty()) {
 
             firebaseAuth.signInWithEmailAndPassword(login, password).addOnCompleteListener {
@@ -18,7 +18,7 @@ class UserRegisterRequestProvider(private val firebaseAuth: FirebaseAuth,private
                 } else {
                     Toast.makeText(
                         activity.applicationContext,
-                        "Данный аккуант не существует",
+                        "Неверный логин или пароль",
                         Toast.LENGTH_SHORT
                     ).show()
                 }

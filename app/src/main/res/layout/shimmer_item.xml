@@ -6,11 +6,10 @@
     android:layout_height="wrap_content"
     android:layout_margin="10dp"
     android:background="@drawable/success_dialog"
-    android:elevation="3dp"
+    android:elevation="2dp"
     tools:ignore="UnusedAttribute">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="6dp"
@@ -19,23 +18,28 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-
         <TextView
-            android:id="@+id/readBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/read_more"
+            android:id="@+id/layout"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintWidth_percent="0.3"
+            app:layout_constraintHeight_percent="0.12"
+            android:layout_marginTop="5dp"
+            android:background="@color/def_color"
             android:textColor="@color/green"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvDescription" />
 
         <TextView
             android:id="@+id/writeCommentBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/addComment"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintWidth_percent="0.3"
+            app:layout_constraintHeight_percent="0.12"
             android:layout_margin="5dp"
+            android:background="@color/def_color"
             android:textColor="@color/blueColor"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvDescription" />
@@ -51,91 +55,87 @@
             android:id="@+id/typeImageView"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            app:imageView_duration="300"
             android:layout_margin="10dp"
-            android:src="@drawable/astronomy"
+            android:background="@color/def_color"
+            app:imageView_duration="300"
             app:layout_constraintBottom_toTopOf="@+id/guideline4"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tvAuthor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:text="Xoldarov Temur"
-            android:maxLines="1"
+            android:background="@color/def_color"
             android:fontFamily="monospace"
-            android:textColor="@color/black"
             android:maxLength="20"
+            android:maxLines="1"
+            android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="bold"
+            app:layout_constraintHeight_percent="0.15"
             app:layout_constraintStart_toEndOf="@+id/typeImageView"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.5" />
 
         <TextView
             android:id="@+id/tvType"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="4dp"
-            android:text="Astronomy"
-            android:textStyle="bold"
+            android:layout_marginTop="6dp"
+            android:background="@color/def_color"
             android:fontFamily="monospace"
             android:textColor="@color/black"
+            android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/guideline4"
+            app:layout_constraintHeight_percent="0.12"
             app:layout_constraintStart_toEndOf="@+id/typeImageView"
             app:layout_constraintTop_toBottomOf="@+id/tvAuthor"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="0.0"
+            app:layout_constraintWidth_percent="0.4" />
 
         <TextView
             android:id="@+id/tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:layout_margin="5dp"
-            android:textStyle="bold"
+            android:background="@color/def_color"
             android:textColor="@color/black"
-            android:fontFamily="monospace"
-            android:text="@string/short_description"
+            android:textStyle="bold"
+            app:layout_constraintHeight_percent="0.1"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline4" />
+            app:layout_constraintTop_toTopOf="@+id/guideline4"
+            app:layout_constraintWidth_percent="0.2" />
 
         <!-- android:fontFamily="monospace"-->
         <TextView
             android:id="@+id/tvDescription"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="300dp"
+            android:layout_height="30dp"
             android:layout_margin="5dp"
-            android:text="@string/decription"
-            android:textStyle="bold"
-            android:textColor="#A69C9C"
+            android:background="@color/def_color"
             android:fontFamily="monospace"
+            android:textColor="#A69C9C"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv" />
 
-        <com.skydoves.elasticviews.ElasticImageView
-            android:id="@+id/shareImageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:src="@drawable/ic_baseline_share_24"
-            android:tint="@color/green"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <com.skydoves.elasticviews.ElasticImageView
-            android:id="@+id/deleteBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:src="@drawable/ic_baseline_delete_24"
-            android:tint="@color/green"
-            app:layout_constraintEnd_toStartOf="@+id/shareImageView"
-            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-
+    <com.skydoves.elasticviews.ElasticImageView
+        android:id="@+id/saveImageView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="16dp"
+        android:background="@color/def_color"
+        android:tint="@color/green"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.15"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.07" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

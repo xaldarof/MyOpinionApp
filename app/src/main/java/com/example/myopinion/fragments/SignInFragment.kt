@@ -1,14 +1,18 @@
 package com.example.myopinion.fragments
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.example.myopinion.R
 import com.example.myopinion.databinding.FragmentSignInBinding
 import com.example.myopinion.viewmodel.SignInFragmentViewModel
 import com.example.myopinion.viewmodel.SignInViewModelFactory
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 
 class SignInFragment : Fragment() {
@@ -33,7 +37,15 @@ class SignInFragment : Fragment() {
             name = binding.nameEditText.text.toString()
             surname = binding.surnameEditText.text.toString()
 
-            createUser(login, password,name,surname)
+            if (login.isNotEmpty() && password.isNotEmpty() && name.isNotEmpty() && surname.isNotEmpty()) {
+                if (!login.endsWith("@gmail.com") || password.length < 8){
+                    Snackbar.make(binding.cordinatorLayout, R.string.error_register_input, Snackbar.LENGTH_LONG)
+                        .setBackgroundTint(Color.RED)
+                        .show()
+                } else {
+                    createUser(login, password, name, surname)
+                }
+            }
 
         }
         viewModel = ViewModelProvider(this, SignInViewModelFactory(requireActivity()))

@@ -3,44 +3,24 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="app/src/main/res/drawable/background_label.xml" value="0.14583333333333334" />
-        <entry key="app/src/main/res/drawable/ic_baseline_add_a_photo_24.xml" value="0.35" />
-        <entry key="app/src/main/res/drawable/ic_baseline_campaign_24.xml" value="0.23333333333333334" />
-        <entry key="app/src/main/res/drawable/ic_baseline_cloud_24.xml" value="0.23333333333333334" />
-        <entry key="app/src/main/res/drawable/ic_baseline_content_copy_24.xml" value="0.35" />
-        <entry key="app/src/main/res/drawable/ic_baseline_delete_24.xml" value="0.35" />
-        <entry key="app/src/main/res/drawable/ic_baseline_fullscreen_24.xml" value="0.35" />
-        <entry key="app/src/main/res/drawable/ic_baseline_record_voice_over_24.xml" value="0.23333333333333334" />
-        <entry key="app/src/main/res/drawable/ic_baseline_share_24.xml" value="0.35" />
-        <entry key="app/src/main/res/layout/activity_reading.xml" value="0.22" />
-        <entry key="app/src/main/res/layout/activity_register.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/activity_sign_in.xml" value="0.2171875" />
-        <entry key="app/src/main/res/layout/activity_write_opinion.xml" value="0.32578125" />
-        <entry key="app/src/main/res/layout/bottom_sheet.xml" value="0.2171875" />
-        <entry key="app/src/main/res/layout/comment_item.xml" value="0.67" />
-        <entry key="app/src/main/res/layout/comments_toolbar.xml" value="0.32578125" />
-        <entry key="app/src/main/res/layout/fragment_fill_information.xml" value="0.22" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.22" />
-        <entry key="app/src/main/res/layout/fragment_main.xml" value="0.32578125" />
-        <entry key="app/src/main/res/layout/fragment_my_opinions.xml" value="0.32578125" />
-        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/fragment_report.xml" value="0.2" />
-        <entry key="app/src/main/res/layout/fragment_saved.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/fragment_sign_in.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/item.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/my_opinions_toolbar.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/notification_item.xml" value="0.5" />
-        <entry key="app/src/main/res/layout/notification_toolbar.xml" value="0.20652173913043478" />
-        <entry key="app/src/main/res/layout/profile_fragment_bottom_sheet.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/reading_toolbar.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/report_toolbar.xml" value="0.5" />
-        <entry key="app/src/main/res/layout/success_dialog.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/success_report.xml" value="0.5" />
-        <entry key="app/src/main/res/layout/toolbar_fav_opinions.xml" value="0.162890625" />
-        <entry key="app/src/main/res/menu/menu.xml" value="0.32578125" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/MyOpinionApp/app/src/main/res/drawable/ic_baseline_bookmark_add_24.xml" value="0.21302083333333333" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/MyOpinionApp/app/src/main/res/drawable/ic_baseline_delete_24.xml" value="0.21302083333333333" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/MyOpinionApp/app/src/main/res/drawable/ic_baseline_share_24.xml" value="0.21302083333333333" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/MyOpinionApp/app/src/main/res/drawable/success_dialog.xml" value="0.31953125" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/MyOpinionApp/app/src/main/res/layout/activity_saved_opinions.xml" value="0.19293478260869565" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/MyOpinionApp/app/src/main/res/layout/fav_opinion_item.xml" value="0.33" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/MyOpinionApp/app/src/main/res/layout/fragment_main.xml" value="0.25" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/MyOpinionApp/app/src/main/res/layout/fragment_profile.xml" value="0.5" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/MyOpinionApp/app/src/main/res/layout/fragment_saved.xml" value="0.19293478260869565" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/MyOpinionApp/app/src/main/res/layout/fragment_sign_in.xml" value="0.19556451612903225" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/MyOpinionApp/app/src/main/res/layout/item.xml" value="0.33" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/MyOpinionApp/app/src/main/res/layout/notification_item.xml" value="0.5" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/MyOpinionApp/app/src/main/res/layout/shimmer_item.xml" value="0.33" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/MyOpinionApp/app/src/main/res/layout/toolbar.xml" value="0.2708333333333333" />
       </map>
     </option>
   </component>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>

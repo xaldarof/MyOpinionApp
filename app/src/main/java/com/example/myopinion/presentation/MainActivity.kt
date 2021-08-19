@@ -31,10 +31,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         val currentUser = firebaseAuth.currentUser
 
-        notificationCounter.getCount().observe(this, {
-            binding.toolBarMain.badge.setNumber(it.size)
-        })
-
         if (!NetworkUtils.isNetworkAvailable(this)) {
             TopSnackBarShower.show(binding.layout, this, resources.getString(R.string.noInternet))
         }

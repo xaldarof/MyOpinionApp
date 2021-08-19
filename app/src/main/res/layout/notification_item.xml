@@ -49,9 +49,9 @@
         <TextView
             android:id="@+id/tvBody"
             android:layout_width="0dp"
+            android:padding="4dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
-            android:layout_marginLeft="12dp"
             android:layout_marginTop="32dp"
             android:textStyle="bold"
             android:text="Здраствуйте, на следующей неделе у нас будет обновление системы. Добавис новый функционал для вас и для вашего удобства. Спасибо за внимание !"

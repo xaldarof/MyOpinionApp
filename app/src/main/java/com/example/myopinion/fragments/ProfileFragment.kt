@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.example.myopinion.R
 import com.example.myopinion.databinding.FragmentProfileBinding
 import com.example.myopinion.helpers.ProfileBottomSheetDialogShower
 import com.example.myopinion.netReq.userProfile.UserProfileCheckProvider
@@ -88,6 +89,14 @@ class ProfileFragment : Fragment() {
         binding.fillBtn.setOnClickListener {
             ProfileBottomSheetDialogShower(requireContext(),this).show()
         }
+
+        binding.readSavedBtn.setOnClickListener {
+            val savedFragment = SavedFragment()
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.layout, savedFragment)
+                .addToBackStack(null).commit()
+        }
+
     }
 
     private fun updateImage() {

@@ -44,6 +44,8 @@ class MainFragment : Fragment() {
                     list.shuffle()
                     mainFragmentAdapterHelper.notifyDataSetChanged()
                     binding.progressBar.check(list)
+                    binding.shimmerLayout.stopShimmer()
+                    binding.shimmerLayout.visibility = View.GONE
                 }
                 Status.ERROR -> {
                     TopSnackBarShower.show(
