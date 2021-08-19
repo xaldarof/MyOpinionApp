@@ -194,15 +194,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/switchPassword"
+        <com.skydoves.elasticviews.ElasticImageView
+            android:id="@+id/password_info_img"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerInParent="true"
             android:layout_marginEnd="14dp"
-            android:thumb="@drawable/switch_thumb"
-            app:track="@drawable/switch_track" />
+            android:src="@drawable/ic_baseline_lock_24"
+            android:tint="@color/black" />
 
     </RelativeLayout>
 

@@ -2,8 +2,12 @@ package com.example.myopinion.utils
 
 import android.content.Context
 import android.graphics.Color
+import android.text.Layout
 import android.util.Log
+import android.view.View
+import android.widget.RelativeLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintSet
 import com.andrognito.pinlockview.IndicatorDots
 import com.andrognito.pinlockview.PinLockView
 import com.andrognito.pinlockview.PinLockListener
@@ -11,7 +15,7 @@ import com.example.myopinion.repository.Password
 
 
 interface PinLockerCallBack {
-    fun showPinLocker(pinLockView: PinLockView,indicatorDots: IndicatorDots)
+    fun showPinLocker(pinLockView: PinLockView,indicatorDots: IndicatorDots,layout: RelativeLayout)
 }
 
 class PinLocker(private val context: Context) : PinLockerCallBack{
@@ -19,13 +23,16 @@ class PinLocker(private val context: Context) : PinLockerCallBack{
     private lateinit var password: Password
     private val sharedPreferences = context.getSharedPreferences("password", AppCompatActivity.MODE_PRIVATE)
 
-    override fun showPinLocker(pinLockView: PinLockView,indicatorDots: IndicatorDots) {
+    override fun showPinLocker(pinLockView: PinLockView,indicatorDots: IndicatorDots,layout: RelativeLayout) {
         pinLockView.attachIndicatorDots(indicatorDots)
 
         pinLockView.setPinLockListener(object : PinLockListener {
             override fun onComplete(pin: String) {
-                Log.d(TAG, "Pin complete: $pin")
                 pinLockView.resetPinLockView()
+                if (pin == password.getPassword()) {
+                    layout.visibility = View.GONE
+
+                }
             }
 
             override fun onEmpty() {
@@ -34,7 +41,6 @@ class PinLocker(private val context: Context) : PinLockerCallBack{
 
             override fun onPinChange(pinLength: Int, intermediatePin: String) {
                 password = Password(sharedPreferences,context)
-                Log.d("info","PASSWORD = ${password.getPassword()}")
 
             }
         })

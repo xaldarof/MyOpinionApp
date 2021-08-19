@@ -16,7 +16,10 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.myopinion.R
 import com.example.myopinion.databinding.FragmentProfileBinding
+import com.example.myopinion.helpers.PasswordCheck
+import com.example.myopinion.helpers.PasswordSetter
 import com.example.myopinion.helpers.ProfileBottomSheetDialogShower
+import com.example.myopinion.helpers.SignOut
 import com.example.myopinion.netReq.userProfile.UserProfileCheckProvider
 import com.example.myopinion.netReq.userProfile.UserProfileChecker
 import com.example.myopinion.netReq.userProfile.UserProfileInfo
@@ -25,6 +28,7 @@ import com.example.myopinion.presentation.registration.RegisterActivity
 import com.example.myopinion.repository.FavoriteOpinionCacheDataSource
 import com.example.myopinion.repository.FavoriteOpinionDataSource
 import com.example.myopinion.repository.Password
+import com.example.myopinion.repository.PasswordChecker
 import com.example.myopinion.utils.KeyNums
 import com.example.myopinion.viewmodel.ProfileFragmentViewModel
 import com.example.myopinion.viewmodel.ProfileViewModelFactory
@@ -51,11 +55,12 @@ class ProfileFragment : Fragment() {
     private val favoriteOpinionDataSource = FavoriteOpinionDataSource(FavoriteOpinionCacheDataSource(realm))
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentProfileBinding.inflate(inflater, container, false)
         initActions()
+        val passwordSetter = PasswordSetter(requireContext(),this)
+        passwordSetter.init(binding.setPasswordBtn)
+        PasswordCheck.PasswordChecker(requireContext(),binding.passwordInfoImg).init()
 
         firebaseAuth = FirebaseAuth.getInstance()
         user = firebaseAuth.currentUser
@@ -65,7 +70,8 @@ class ProfileFragment : Fragment() {
         userProfileChecker = UserProfileChecker(UserProfileCheckProvider(firebaseAuth,referenceFirebaseDatabase,firebaseDatabase,binding.profilePhoto))
         userProfileChecker.initProfilePhoto()
 
-        val userProfileInfo = UserProfileInfo(UserProfileInfoCheckProvider(firebaseAuth,referenceFirebaseDatabase,firebaseDatabase,favoriteOpinionDataSource))
+        val userProfileInfo = UserProfileInfo(UserProfileInfoCheckProvider(firebaseAuth,referenceFirebaseDatabase,
+            firebaseDatabase, favoriteOpinionDataSource))
         CoroutineScope(Dispatchers.Main).launch {
             userProfileInfo.getUserInfoFromDb().collect {
                 binding.tvName.text = it.name.plus(" ${it.surname}")
@@ -83,6 +89,9 @@ class ProfileFragment : Fragment() {
             parentFragmentManager.popBackStack()
         }
         binding.toolBar.signOut.setOnClickListener {
+            SignOut.SignOutHelper(firebaseAuth,requireActivity()).signOut()
+        }
+        binding.toolBar.signOut.setOnClickListener {
             firebaseAuth.signOut()
             val intent = Intent(requireContext(), RegisterActivity::class.java)
             startActivity(intent)
@@ -94,7 +103,6 @@ class ProfileFragment : Fragment() {
         binding.fillBtn.setOnClickListener {
             ProfileBottomSheetDialogShower(requireContext(),this).show()
         }
-
         binding.readSavedBtn.setOnClickListener {
             val savedFragment = SavedFragment()
             parentFragmentManager.beginTransaction()

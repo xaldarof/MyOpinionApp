@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentManager
+import androidx.lifecycle.ViewModelProvider
 import com.example.myopinion.R
 import com.example.myopinion.adapters.FragmentAdapter
 import com.example.myopinion.databinding.ActivityMainBinding
@@ -17,8 +18,13 @@ import com.example.myopinion.repository.PasswordChecker
 import com.example.myopinion.tools.NetworkUtils
 import com.example.myopinion.tools.TopSnackBarShower
 import com.example.myopinion.utils.PinLocker
+import com.example.myopinion.viewmodel.MainActivityViewModel
+import com.example.myopinion.viewmodel.MainActivityViewModelFactory
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
@@ -37,13 +43,17 @@ class MainActivity : AppCompatActivity() {
         val passwordChecker = PasswordChecker(this,binding)
         passwordChecker.check()
 
-        if (!NetworkUtils.isNetworkAvailable(this)) {
-            TopSnackBarShower.show(binding.layout, this, resources.getString(R.string.noInternet))
-        }
-
         fragmentAdapter = FragmentAdapter(supportFragmentManager, lifecycle)
         binding.pager.adapter = fragmentAdapter
 
+        val viewModel = ViewModelProvider(this)[MainActivityViewModel::class.java]
+        CoroutineScope(Dispatchers.Main).launch {
+            viewModel.networkObserver(this@MainActivity).observe(this@MainActivity, {
+                if (it==false){
+                    TopSnackBarShower.show(binding.layout,this@MainActivity, resources.getString(R.string.noInternet))
+                }
+            })
+        }
         val savedFragment = SavedFragment()
         val profileFragment = ProfileFragment()
         val searchFragment = SearchFragment()

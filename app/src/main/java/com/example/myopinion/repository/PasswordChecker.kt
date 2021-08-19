@@ -15,7 +15,10 @@ class PasswordChecker(private val context: Context,private val binding: Activity
         password = Password(sharedPreferences,context)
         if (password.getPassword().isNotEmpty()){
             val pinLocker = PinLocker(context)
-            pinLocker.showPinLocker(binding.pinLockerLayout.pinLocker,binding.pinLockerLayout.indicatorDots)
+            pinLocker.showPinLocker(
+                binding.pinLockerLayout.pinLocker,
+                binding.pinLockerLayout.indicatorDots,
+                binding.pinLockerLayout.root)
         }else {
             binding.pinLockerLayout.pinLockerLayout.visibility = View.GONE
         }

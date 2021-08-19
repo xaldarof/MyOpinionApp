@@ -77,5 +77,7 @@
     <string name="report_about_problem">Сообщить о проблеме</string>
     <string name="send_problem">Отправить</string>
     <string name="read_more">Читать дальше...</string>
+    <string name="disable_password">Отключить пароль</string>
+    <string name="author">Created by Xoldarov Temur</string>
 
 </resources>
