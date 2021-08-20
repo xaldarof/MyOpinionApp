@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModelProvider
 import com.example.myopinion.R
@@ -31,8 +32,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var fragmentAdapter: FragmentAdapter
     private lateinit var binding: ActivityMainBinding
     private val firebaseFirestore = FirebaseFirestore.getInstance()
-    private val notificationCounter =
-        NotificationCounter(NotificationCounterProvider(firebaseFirestore))
     private val firebaseAuth = FirebaseAuth.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,6 +41,7 @@ class MainActivity : AppCompatActivity() {
         val currentUser = firebaseAuth.currentUser
         val passwordChecker = PasswordChecker(this,binding)
         passwordChecker.check()
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
         fragmentAdapter = FragmentAdapter(supportFragmentManager, lifecycle)
         binding.pager.adapter = fragmentAdapter

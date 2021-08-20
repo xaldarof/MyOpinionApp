@@ -1,6 +1,5 @@
 package com.example.myopinion.helpers
 
-import android.widget.EditText
 import com.example.myopinion.databinding.ActivityWriteOpinionBinding
 import com.example.myopinion.utils.KeyNums.Companion.MIN_BODY
 import com.example.myopinion.utils.KeyNums.Companion.MIN_DESCRIPTION

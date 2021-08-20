@@ -8,6 +8,7 @@ import android.view.View
 import android.view.Window
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import com.example.myopinion.presentation.MainActivity
 import com.example.myopinion.databinding.ActivitySignInBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -25,6 +26,7 @@ class PresentationActivity : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN)
         hideNavBar()
         setContentView(binding.root)
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
         firebaseAuth = FirebaseAuth.getInstance()
         val user = firebaseAuth.currentUser

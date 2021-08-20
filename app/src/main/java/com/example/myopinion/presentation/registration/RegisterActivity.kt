@@ -2,6 +2,7 @@ package com.example.myopinion.presentation.registration
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import com.example.myopinion.R
 import com.example.myopinion.databinding.ActivityRegisterBinding
 import com.example.myopinion.fragments.SignInFragment
@@ -18,6 +19,7 @@ class RegisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
         firebaseAuth = FirebaseAuth.getInstance()
 

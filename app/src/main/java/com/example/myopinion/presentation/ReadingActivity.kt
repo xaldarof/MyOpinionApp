@@ -2,17 +2,18 @@ package com.example.myopinion.presentation
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.ViewModelProvider
 import com.example.myopinion.databinding.ActivityReadingBinding
-import com.example.myopinion.helpers.ShareTextFormatter
-import com.example.myopinion.helpers.TextCopier
-import com.example.myopinion.helpers.TextShare
-import com.example.myopinion.helpers.TextShareProvider
+import com.example.myopinion.helpers.*
+import com.example.myopinion.models.BadComment
+import com.example.myopinion.models.BadOpinionModel
 import com.example.myopinion.models.Opinion
 import com.example.myopinion.viewmodel.ReadingActivityViewModel
 import com.example.myopinion.viewmodel.ReadingViwModelFactory
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.firestore.FirebaseFirestore
 
 class ReadingActivity : AppCompatActivity() {
 
@@ -29,10 +30,10 @@ class ReadingActivity : AppCompatActivity() {
         binding = ActivityReadingBinding.inflate(layoutInflater)
         setContentView(binding.root)
         val intent = intent.getSerializableExtra("opinion") as Opinion
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
         binding.toolBar.activityTitle.text = intent.title
         binding.bodyTv.text = intent.body
-
         val viewModel =
             ViewModelProvider(this, ReadingViwModelFactory(firebaseDatabase, firebaseAuth, intent))
                 .get(ReadingActivityViewModel::class.java)
@@ -41,6 +42,9 @@ class ReadingActivity : AppCompatActivity() {
             binding.toolBar.viewCounter.text = it.size.toString()
         })
 
+        binding.reportBtn.setOnClickListener {
+            report(intent.postId)
+        }
         binding.toolBar.backBtn.setOnClickListener {
             finish()
         }
@@ -51,6 +55,12 @@ class ReadingActivity : AppCompatActivity() {
         binding.copyBtn.setOnClickListener {
             copyTextBody()
         }
+    }
+
+    private fun report(postId:String) {
+        val fireStore = FirebaseFirestore.getInstance()
+        val badOpinion = BadOpinionReporter(BadOpinionReportProvider(fireStore,this))
+        badOpinion.report(postId,firebaseAuth.currentUser!!.email.toString())
     }
 
     private fun copyTextBody() {

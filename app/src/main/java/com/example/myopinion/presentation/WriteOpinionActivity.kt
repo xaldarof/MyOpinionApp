@@ -2,6 +2,7 @@ package com.example.myopinion.presentation
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.ViewModelProvider
 import com.example.myopinion.databinding.ActivityWriteOpinionBinding
 import com.example.myopinion.helpers.CustomTextWatcher
@@ -22,6 +23,7 @@ class WriteOpinionActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityWriteOpinionBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
         customTextWatcher.observeInput(binding.bodyEditText,binding.tvCounterLength)
         val intent = intent.extras

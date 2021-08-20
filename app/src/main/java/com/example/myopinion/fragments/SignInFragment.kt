@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.myopinion.R
 import com.example.myopinion.databinding.FragmentSignInBinding
+import com.example.myopinion.helpers.TextToSpanableText
 import com.example.myopinion.viewmodel.SignInFragmentViewModel
 import com.example.myopinion.viewmodel.SignInViewModelFactory
 import com.google.android.material.snackbar.Snackbar
@@ -29,6 +30,9 @@ class SignInFragment : Fragment() {
     ): View {
         binding = FragmentSignInBinding.inflate(inflater, container, false)
         firebaseAuth = FirebaseAuth.getInstance()
+        binding.signInBtn.isEnabled = false
+        val textToSpannableText  = TextToSpanableText(requireContext())
+        textToSpannableText.init(binding.checkbox,binding.signInBtn,binding.politicsTv)
 
         binding.signInBtn.setOnClickListener {
             login = binding.loginInputText.text.toString()

@@ -3,8 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.myopinion">
 
-    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY"/>
-    <uses-permission android:name="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE"
+    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
+    <uses-permission
+        android:name="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE"
         tools:ignore="ProtectedPermissions" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -30,10 +31,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".presentation.registration.RegisterActivity" android:screenOrientation="portrait"/>
+        <activity
+            android:name=".presentation.registration.RegisterActivity"
+            android:screenOrientation="portrait" />
         <activity android:name=".presentation.SavedOpinionsActivity" />
-        <activity android:name=".presentation.WriteOpinionActivity" />
-        <activity android:name=".presentation.MainActivity"/>
+        <activity
+            android:name=".presentation.WriteOpinionActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".presentation.MainActivity"
+            android:screenOrientation="portrait" />
 
         <service android:name=".service.FireBaseMessageService">
             <intent-filter>

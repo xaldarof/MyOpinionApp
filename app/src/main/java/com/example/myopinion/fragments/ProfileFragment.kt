@@ -27,8 +27,6 @@ import com.example.myopinion.netReq.userProfile.UserProfileInfoCheckProvider
 import com.example.myopinion.presentation.registration.RegisterActivity
 import com.example.myopinion.repository.FavoriteOpinionCacheDataSource
 import com.example.myopinion.repository.FavoriteOpinionDataSource
-import com.example.myopinion.repository.Password
-import com.example.myopinion.repository.PasswordChecker
 import com.example.myopinion.utils.KeyNums
 import com.example.myopinion.viewmodel.ProfileFragmentViewModel
 import com.example.myopinion.viewmodel.ProfileViewModelFactory
@@ -89,13 +87,7 @@ class ProfileFragment : Fragment() {
             parentFragmentManager.popBackStack()
         }
         binding.toolBar.signOut.setOnClickListener {
-            SignOut.SignOutHelper(firebaseAuth,requireActivity()).signOut()
-        }
-        binding.toolBar.signOut.setOnClickListener {
-            firebaseAuth.signOut()
-            val intent = Intent(requireContext(), RegisterActivity::class.java)
-            startActivity(intent)
-            requireActivity().finish()
+            SignOut.SignOutHelper(firebaseAuth,requireContext(),requireActivity()).signOut()
         }
         binding.profilePhoto.setOnClickListener {
             updateImage()

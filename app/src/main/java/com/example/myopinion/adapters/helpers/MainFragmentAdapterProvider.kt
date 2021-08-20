@@ -2,8 +2,12 @@ package com.example.myopinion.adapters.helpers
 
 import android.content.Context
 import android.content.Intent
+import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager.VERTICAL
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myopinion.R
 import com.example.myopinion.adapters.ItemAdapter
@@ -26,6 +30,8 @@ class MainFragmentAdapterProvider(private val list: List<Opinion>, private val c
     private val favoriteOpinionDataSource = FavoriteOpinionDataSource(FavoriteOpinionCacheDataSource(realm))
 
     override fun initAdapter() {
+        val layoutManager = LinearLayoutManager(context,VERTICAL,false)
+        recyclerView.layoutManager = layoutManager
 
         itemAdapter = ItemAdapter(list, object : ItemAdapter.OnClickListener {
             override fun onClickSave(opinion: Opinion, position: Int) {
@@ -55,6 +61,7 @@ class MainFragmentAdapterProvider(private val list: List<Opinion>, private val c
             }
         }, context)
         recyclerView.adapter = itemAdapter
+
     }
     override fun notifyDataSetChanged(){
         itemAdapter.notifyDataSetChanged()
