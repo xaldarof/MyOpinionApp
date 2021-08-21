@@ -7,12 +7,12 @@
 
     <fragment
         android:id="@+id/savedFragment"
-        android:name="com.example.myopinion.fragments.SavedFragment"
+        android:name="com.opinion.myopinion.fragments.SavedFragment"
         android:label="fragment_saved"
         tools:layout="@layout/fragment_saved" />
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.example.myopinion.fragments.MainFragment"
+        android:name="com.opinion.myopinion.fragments.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" >
         <action
