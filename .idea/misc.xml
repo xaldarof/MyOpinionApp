@@ -3,53 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/User/AndroidStudioProjects/MyOpinionApp/app/src/main/res/drawable/ic_baseline_bookmark_add_24.xml" value="0.21302083333333333" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/MyOpinionApp/app/src/main/res/drawable/ic_baseline_delete_24.xml" value="0.21302083333333333" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/MyOpinionApp/app/src/main/res/drawable/ic_baseline_lock_24.xml" value="0.31953125" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/MyOpinionApp/app/src/main/res/drawable/ic_baseline_share_24.xml" value="0.21302083333333333" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/MyOpinionApp/app/src/main/res/drawable/success_dialog.xml" value="0.31953125" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/MyOpinionApp/app/src/main/res/drawable/switch_style.xml" value="0.31953125" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/MyOpinionApp/app/src/main/res/drawable/switch_style1.xml" value="0.31953125" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/MyOpinionApp/app/src/main/res/drawable/switch_style2.xml" value="0.31953125" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/MyOpinionApp/app/src/main/res/drawable/swith_dort_style.xml" value="0.31953125" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/MyOpinionApp/app/src/main/res/layout/activity_main.xml" value="0.33" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/MyOpinionApp/app/src/main/res/layout/activity_reading.xml" value="0.2953125" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/MyOpinionApp/app/src/main/res/layout/activity_register.xml" value="0.33" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/MyOpinionApp/app/src/main/res/layout/activity_saved_opinions.xml" value="0.19293478260869565" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/MyOpinionApp/app/src/main/res/layout/activity_sign_in.xml" value="0.25" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/MyOpinionApp/app/src/main/res/layout/activity_write_opinion.xml" value="0.2953125" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/MyOpinionApp/app/src/main/res/layout/bad_opinion_report.xml" value="0.33" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/MyOpinionApp/app/src/main/res/layout/bottom_sheet.xml" value="0.2953125" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/MyOpinionApp/app/src/main/res/layout/fav_opinion_item.xml" value="0.33" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/MyOpinionApp/app/src/main/res/layout/fragment_comments.xml" value="0.18" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/MyOpinionApp/app/src/main/res/layout/fragment_home.xml" value="0.2953125" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/MyOpinionApp/app/src/main/res/layout/fragment_lock.xml" value="0.2708333333333333" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/MyOpinionApp/app/src/main/res/layout/fragment_main.xml" value="0.25" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/MyOpinionApp/app/src/main/res/layout/fragment_profile.xml" value="0.33" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/MyOpinionApp/app/src/main/res/layout/fragment_report.xml" value="0.2953125" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/MyOpinionApp/app/src/main/res/layout/fragment_saved.xml" value="0.19293478260869565" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/MyOpinionApp/app/src/main/res/layout/fragment_sign_in.xml" value="0.33" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/MyOpinionApp/app/src/main/res/layout/item.xml" value="0.33" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/MyOpinionApp/app/src/main/res/layout/lock_screen.xml" value="0.33" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/MyOpinionApp/app/src/main/res/layout/notification_item.xml" value="0.5" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/MyOpinionApp/app/src/main/res/layout/set_password_layout.xml" value="0.33" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/MyOpinionApp/app/src/main/res/layout/shimmer_item.xml" value="0.33" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/MyOpinionApp/app/src/main/res/layout/success_report.xml" value="0.2953125" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/MyOpinionApp/app/src/main/res/layout/toolbar.xml" value="0.2708333333333333" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/MyOpinionApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.25390625" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/MyOpinionApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.25390625" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/MyOpinionAppUpdated/app/src/main/res/drawable/btn_style.xml" value="0.21302083333333333" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/MyOpinionAppUpdated/app/src/main/res/drawable/disabled_btn.xml" value="0.21302083333333333" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/MyOpinionAppUpdated/app/src/main/res/drawable/search_style.xml" value="0.21302083333333333" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/MyOpinionAppUpdated/app/src/main/res/layout/fragment_comments.xml" value="0.196875" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/MyOpinionAppUpdated/app/src/main/res/layout/fragment_sign_in.xml" value="0.196875" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/MyOpinionAppUpdated/app/src/main/res/layout/search_toolbar.xml" value="0.196875" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/MyOpinionAppUpdated/app/src/main/res/layout/toolbar_fav_opinions.xml" value="0.196875" />
       </map>
     </option>
   </component>
-  <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
-  </component>
-  <component name="VisualizationToolProject">
-    <option name="state">
-      <ProjectState>
-        <option name="scale" value="0.18" />
-      </ProjectState>
-    </option>
   </component>
 </project>

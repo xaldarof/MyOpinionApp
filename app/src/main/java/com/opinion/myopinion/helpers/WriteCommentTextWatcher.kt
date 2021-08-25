@@ -12,7 +12,7 @@ class WriteCommentTextWatcher(private val context: Context) {
         editText.addTextChangedListener(TextWatcherHelper(object :MyTextWatcher{
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 if (s!!.isNotEmpty()){
-                    imageView.setColorFilter(Color.BLUE)
+                    imageView.setColorFilter(context.resources.getColor(R.color.blue))
                     imageView.isEnabled = true
                 }else {
                     imageView.setColorFilter(context.resources.getColor(R.color.def_color))

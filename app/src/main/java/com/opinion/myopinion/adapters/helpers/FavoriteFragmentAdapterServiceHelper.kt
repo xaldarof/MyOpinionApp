@@ -5,6 +5,8 @@ import android.content.Intent
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.ktx.Firebase
 import com.opinion.myopinion.R
 import com.opinion.myopinion.adapters.FavoriteOpinionItemAdapter
 import com.opinion.myopinion.databinding.FragmentSavedBinding
@@ -50,10 +52,11 @@ class FavoriteFragmentAdapterServiceHelper (private val favoriteOpinionDataSourc
             }
 
             override fun onClickRead(opinion: FavoriteOpinionEntity, position: Int) {
+                val user = FirebaseAuth.getInstance().currentUser!!.email.toString()
                 val intent = Intent(fragment.requireContext(), ReadingActivity::class.java)
                 intent.putExtra("opinion",Opinion(opinion.title.toString(),opinion.type.toString(),opinion.username.toString(),
                     opinion.date.toString(),opinion.shortDescription.toString(),
-                    opinion.exactTheme.toString(),opinion.body.toString(),opinion.postId.toString()))
+                    opinion.exactTheme.toString(),opinion.body.toString(),opinion.postId.toString(),user))
                 fragment.requireContext().startActivity(intent)
 
             }

@@ -2,12 +2,16 @@ package com.opinion.myopinion.adapters
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.opinion.myopinion.R
 import com.opinion.myopinion.databinding.ItemBinding
 import com.opinion.myopinion.models.Opinion
+import com.opinion.myopinion.repository.entity.FavoriteOpinionEntity
+import io.realm.Realm
 
 class ItemAdapter(
     private val list: List<Opinion>,
@@ -24,12 +28,17 @@ class ItemAdapter(
             itemBinding.tvType.text = opinion.type
             itemBinding.tvDescription.text = opinion.shortDescription
 
-//            val realm = Realm.getDefaultInstance()
-//            val realmList = realm.where(FavoriteOpinionEntity::class.java).findAll()
-//
-//            if (list[position].postId == realmList[position]!!.postId){
-//                itemBinding.saveImageView.setImageResource(R.drawable.ic_baseline_cloud_done_24)
-//            }
+            val realm = Realm.getDefaultInstance()
+            val realmList = realm.where(FavoriteOpinionEntity::class.java).findAll()
+            val list = ArrayList<String>()
+
+            for (i in realmList.indices) {
+                if (opinion.postId == realmList[i]!!.postId){
+                    itemBinding.saveImageView.visibility = View.INVISIBLE
+                }else {
+                    itemBinding.saveImageView.visibility = View.VISIBLE
+                }
+            }
 
             when (opinion.type) {
                 context.resources.getString(R.string.life) -> {
@@ -59,13 +68,13 @@ class ItemAdapter(
                 onClickListener.onClickSave(opinion, position)
             }
             itemBinding.writeCommentBtn.setOnClickListener {
-                onClickListener.onClickComment(opinion,position)
+                onClickListener.onClickComment(opinion, position)
             }
             itemBinding.layout.setOnClickListener {
-                onClickListener.onClickRead(opinion,position)
+                onClickListener.onClickRead(opinion, position)
             }
             itemBinding.mainLayout.setOnClickListener {
-                onClickListener.onClickRead2(opinion,position)
+                onClickListener.onClickRead2(opinion, position)
             }
         }
     }
@@ -88,8 +97,8 @@ class ItemAdapter(
 
         fun onClickComment(opinion: Opinion, position: Int)
 
-        fun onClickRead(opinion:Opinion,position: Int)
+        fun onClickRead(opinion: Opinion, position: Int)
 
-        fun onClickRead2(opinion: Opinion,position: Int)
+        fun onClickRead2(opinion: Opinion, position: Int)
     }
 }

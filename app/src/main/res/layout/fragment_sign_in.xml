@@ -151,7 +151,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
-            android:background="@drawable/btn_style"
+            android:background="@drawable/disabled_btn"
             android:clickable="true"
             android:focusable="true"
             android:padding="10dp"

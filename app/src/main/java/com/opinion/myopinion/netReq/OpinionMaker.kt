@@ -1,5 +1,6 @@
 package com.opinion.myopinion.netReq
 
+import com.google.firebase.auth.FirebaseAuth
 import com.opinion.myopinion.databinding.ActivityWriteOpinionBinding
 import com.opinion.myopinion.models.Opinion
 
@@ -12,7 +13,8 @@ class OpinionMaker(private val binding: ActivityWriteOpinionBinding,private val 
          val shortDescriptionCompat =  binding.shortDescriptionEditText.text.toString()
          val exactTheme = binding.exactThemeEditText.text.toString()
          val body = binding.bodyEditText.text.toString()
+         val author = FirebaseAuth.getInstance().currentUser!!.email.toString()
 
-         return Opinion(title,type,username,date,shortDescriptionCompat,exactTheme, body, postId)
+         return Opinion(title,type,username,date,shortDescriptionCompat,exactTheme, body, postId,author)
      }
 }
