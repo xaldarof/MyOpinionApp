@@ -28,41 +28,44 @@ class ItemAdapter(
             itemBinding.tvType.text = opinion.type
             itemBinding.tvDescription.text = opinion.shortDescription
 
-            val realm = Realm.getDefaultInstance()
-            val realmList = realm.where(FavoriteOpinionEntity::class.java).findAll()
-            val list = ArrayList<String>()
 
-            for (i in realmList.indices) {
-                if (opinion.postId == realmList[i]!!.postId){
-                    itemBinding.saveImageView.visibility = View.INVISIBLE
-                }else {
-                    itemBinding.saveImageView.visibility = View.VISIBLE
-                }
-            }
+            //TODO FIX
 
-            when (opinion.type) {
-                context.resources.getString(R.string.life) -> {
-                    itemBinding.typeImageView.setImageResource(R.drawable.life)
-                }
-                context.resources.getString(R.string.Business) -> {
-                    itemBinding.typeImageView.setImageResource(R.drawable.business)
-                }
-                context.resources.getString(R.string.Carreer) -> {
-                    itemBinding.typeImageView.setImageResource(R.drawable.carreer)
-                }
-                context.resources.getString(R.string.Love) -> {
-                    itemBinding.typeImageView.setImageResource(R.drawable.love)
-                }
-                context.resources.getString(R.string.Tech) -> {
-                    itemBinding.typeImageView.setImageResource(R.drawable.tech)
-                }
-                context.resources.getString(R.string.Family) -> {
-                    itemBinding.typeImageView.setImageResource(R.drawable.family)
-                }
-                context.resources.getString(R.string.Sport) -> {
-                    itemBinding.typeImageView.setImageResource(R.drawable.sports)
-                }
-            }
+            // val realm = Realm.getDefaultInstance()
+            // val realmList = realm.where(FavoriteOpinionEntity::class.java).findAll()
+//            for (i in realmList.indices) {
+//                if (opinion.postId == realmList[i]!!.postId){
+//                    itemBinding.saveImageView.visibility = View.INVISIBLE
+//                    Log.d("abcd","1")
+//                }else {
+//                    Log.d("abcd","0")
+//                    itemBinding.saveImageView.visibility = View.VISIBLE
+//                }
+//            }
+
+                    when (opinion.type) {
+                        context.resources.getString(R.string.life) -> {
+                            itemBinding.typeImageView.setImageResource(R.drawable.life)
+                        }
+                        context.resources.getString(R.string.Business) -> {
+                            itemBinding.typeImageView.setImageResource(R.drawable.business)
+                        }
+                        context.resources.getString(R.string.Carreer) -> {
+                            itemBinding.typeImageView.setImageResource(R.drawable.carreer)
+                        }
+                        context.resources.getString(R.string.Love) -> {
+                            itemBinding.typeImageView.setImageResource(R.drawable.love)
+                        }
+                        context.resources.getString(R.string.Tech) -> {
+                            itemBinding.typeImageView.setImageResource(R.drawable.tech)
+                        }
+                        context.resources.getString(R.string.Family) -> {
+                            itemBinding.typeImageView.setImageResource(R.drawable.family)
+                        }
+                        context.resources.getString(R.string.Sport) -> {
+                            itemBinding.typeImageView.setImageResource(R.drawable.sports)
+                        }
+                    }
 
             itemBinding.saveImageView.setOnClickListener {
                 onClickListener.onClickSave(opinion, position)

@@ -55,6 +55,12 @@ class MyOpinionsItemAdapter(
             myOpinionItemBinding.writeCommentBtn.setOnClickListener {
                 onClickListener.onClickComment(opinion,position)
             }
+            myOpinionItemBinding.layout.setOnClickListener {
+                onClickListener.onClickRead(opinion,position)
+            }
+            myOpinionItemBinding.readBtn.setOnClickListener {
+                onClickListener.onClickRead(opinion,position)
+            }
         }
     }
 
@@ -75,5 +81,8 @@ class MyOpinionsItemAdapter(
         fun onClickShare(opinion: OpinionEntity, position: Int)
 
         fun onClickComment(opinion: OpinionEntity, position: Int)
+
+        fun onClickRead(opinion: OpinionEntity, position: Int)
     }
+
 }

@@ -6,8 +6,14 @@
         <entry key="..\:/Users/User/AndroidStudioProjects/MyOpinionAppUpdated/app/src/main/res/drawable/btn_style.xml" value="0.21302083333333333" />
         <entry key="..\:/Users/User/AndroidStudioProjects/MyOpinionAppUpdated/app/src/main/res/drawable/disabled_btn.xml" value="0.21302083333333333" />
         <entry key="..\:/Users/User/AndroidStudioProjects/MyOpinionAppUpdated/app/src/main/res/drawable/search_style.xml" value="0.21302083333333333" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/MyOpinionAppUpdated/app/src/main/res/drawable/success_dialog.xml" value="0.21302083333333333" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/MyOpinionAppUpdated/app/src/main/res/layout/fav_opinion_item.xml" value="0.196875" />
         <entry key="..\:/Users/User/AndroidStudioProjects/MyOpinionAppUpdated/app/src/main/res/layout/fragment_comments.xml" value="0.196875" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/MyOpinionAppUpdated/app/src/main/res/layout/fragment_saved.xml" value="0.196875" />
         <entry key="..\:/Users/User/AndroidStudioProjects/MyOpinionAppUpdated/app/src/main/res/layout/fragment_sign_in.xml" value="0.196875" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/MyOpinionAppUpdated/app/src/main/res/layout/item.xml" value="0.33" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/MyOpinionAppUpdated/app/src/main/res/layout/my_opinion_item.xml" value="0.22" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/MyOpinionAppUpdated/app/src/main/res/layout/reading_toolbar.xml" value="0.25" />
         <entry key="..\:/Users/User/AndroidStudioProjects/MyOpinionAppUpdated/app/src/main/res/layout/search_toolbar.xml" value="0.196875" />
         <entry key="..\:/Users/User/AndroidStudioProjects/MyOpinionAppUpdated/app/src/main/res/layout/toolbar_fav_opinions.xml" value="0.196875" />
       </map>

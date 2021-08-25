@@ -25,6 +25,7 @@ class FavoriteOpinionItemAdapter(
             favOpinionItemBinding.tvType.text = favoriteOpinionEntity.type
             favOpinionItemBinding.tvDescription.text = favoriteOpinionEntity.shortDescription
 
+
             when (favoriteOpinionEntity.type) {
                 context.resources.getString(R.string.life) -> {
                     favOpinionItemBinding.typeImageView.setImageResource(R.drawable.life)
@@ -59,6 +60,9 @@ class FavoriteOpinionItemAdapter(
                 onClickListener.onClickDelete(favoriteOpinionEntity,position)
             }
             favOpinionItemBinding.readBtn.setOnClickListener {
+                onClickListener.onClickRead(favoriteOpinionEntity,position)
+            }
+            favOpinionItemBinding.layout.setOnClickListener {
                 onClickListener.onClickRead(favoriteOpinionEntity,position)
             }
         }
