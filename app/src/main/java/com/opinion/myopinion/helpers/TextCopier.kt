@@ -17,9 +17,8 @@ class TextCopier(private val context: Activity) : TextCopy{
 
     override fun copyThisText(text: String) {
         val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-        val clip = ClipData.newPlainText("label",text)
+        val clip = ClipData.newPlainText("label","Скачай приложение My Opinion ссылка : https://play.google.com/store/apps/details?id=com.opinion.myopinion \n $text")
         clipboard.setPrimaryClip(clip)
         Toast.makeText(context, context.resources.getString(R.string.copied), Toast.LENGTH_SHORT).show()
     }
-
 }
