@@ -49,7 +49,7 @@
     <string name="your_profile">Ваш профиль</string>
 
 
-    <string name="added_to_favorites">Добавлено в избранные</string>
+    <string name="added_to_favorites">Добавлено в прочитанные</string>
     <string name="deleted_from_favorites">Удалено из избранных</string>
     <string name="inValidInput">Пожалуйста, заполните все поля.</string>
     <string name="registration">Зарегистрироваться</string>
@@ -62,7 +62,7 @@
     <string name="searchingItem">Поиск...</string>
     <string name="notes">Новости</string>
     <string name="soon_update">Скоро обновление</string>
-    <string name="addComment">Оставить коментарии</string>
+    <string name="addComment">Оставить коментарии:</string>
     <string name="my_opinions_toolbar_tv">Мои мнении</string>
     <string name="all_opinions">Все мнении : </string>
     <string name="fill_data_text">Заполнить данные</string>
@@ -83,4 +83,15 @@
     <string name="politics_text">Перед тем как установить и начать использование мобильного приложения «My Opinion», убедительная просьба внимательно ознакомиться с настоящей Политикой конфиденциальности и правилами пользования Приложением, чтобы понять наши правила и практику в отношении информации пользователей и то, как мы будем ее собирать и использовать. Соглашаетесь с условиями сбора персональных данных и иной, указанной ниже информации, даете полное и безусловное согласие на обработку информации, в том числе на трансграничную передачу Ваших персональных данных,
          При загрузке, регистрации или использовании данного Приложения, Пользователь предоставляет определенную запрашиваемую информацию, которая может включать в себя имя, адрес электронной почты или другую контактную информацию (далее — «личные данные»). Мы также собираем любую информацию, которую Пользователь предоставляет при заполнении любых полей в Приложении, сообщениях о проблемах функционирования и использования сервисов Приложения, отправке Пользователем писем и сообщений через Приложение. Компания не может контролировать действия третьих лиц, с которыми Пользователь делится своими замечаниями участника. Таким образом, Мы не можем и не гарантируем, что Ваши замечания участника не будут рассматриваться посторонними лицами, даже при использовании Приложения в «ограниченном режиме» (см. Пользовательское соглашение). Кроме того, Мы не можем и не гарантируем, что использование анонимной функции в Приложении предоставит Пользователю фактическую анонимность.</string>
     <string name="agree_politics">Принимаю условия пользовательского \nсоглашения.</string>
+    <string name="viewed">Просмотренные</string>
+    <string name="title_activity_editing">EditingActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="editing">Изменение</string>
 </resources>

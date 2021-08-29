@@ -41,8 +41,21 @@
             android:layout_margin="5dp"
             android:text="@string/addComment"
             android:textColor="@color/blueColor"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvDescription" />
+
+        <TextView
+            android:id="@+id/commentCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="0"
+            android:textColor="@color/blueColor"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/writeCommentBtn"
+            app:layout_constraintStart_toEndOf="@+id/writeCommentBtn"
+            app:layout_constraintTop_toTopOf="@+id/writeCommentBtn" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline4"
@@ -64,26 +77,26 @@
 
         <TextView
             android:id="@+id/tvAuthor"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
+            android:ellipsize="end"
             android:fontFamily="@font/font_monserat"
-            android:maxLength="20"
             android:maxLines="1"
             android:text="Xoldarov Temur"
             android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/typeImageView"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.6" />
 
         <TextView
             android:id="@+id/tvType"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
             android:layout_marginTop="4dp"
             android:fontFamily="monospace"
             android:text="Astronomy"
@@ -122,14 +135,15 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.skydoves.elasticviews.ElasticImageView
-        android:id="@+id/saveImageView"
+        android:id="@+id/editBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:src="@drawable/ic_baseline_bookmark_add_24"
-        android:tint="@color/green"
+        android:background="@drawable/edit_icon_style"
+        android:src="@drawable/ic_baseline_edit_24"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/green" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,6 +12,7 @@
         <item name="android:windowLightStatusBar" tools:ignore="NewApi">true</item>
 
         <item name="android:navigationBarColor" tools:targetApi="lollipop">@color/clubHouse</item>
+        <item name="android:windowLightNavigationBar" tools:ignore="NewApi">true</item>
 
     </style>
 
@@ -19,8 +20,7 @@
         <item name="bottomSheetStyle">@style/BottomSheetDialogStyle</item>
     </style>
 
-    <style name="BottomSheetDialogStyle"
-        parent="Widget.Design.BottomSheet.Modal">
+    <style name="BottomSheetDialogStyle" parent="Widget.Design.BottomSheet.Modal">
         <item name="android:background">@drawable/bottom_layout_style</item>
     </style>
 
@@ -33,5 +33,14 @@
         <item name="background">@drawable/background_label</item>
         <item name="android:textColor">@color/blue</item>
     </style>
+
+    <style name="Theme.MyOpinion.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.MyOpinion.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.MyOpinion.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 </resources>

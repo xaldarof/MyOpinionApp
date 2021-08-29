@@ -37,7 +37,7 @@
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_marginRight="16dp"
-            android:src="@drawable/ic_baseline_favorite_24"
+            android:src="@drawable/ic_baseline_remove_red_eye_24"
             android:tint="@color/black"
             app:imageView_duration="100" />
 
@@ -61,20 +61,20 @@
 
 
     </LinearLayout>
-<!--    <androidx.constraintlayout.widget.ConstraintLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content">-->
+    <!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content">-->
 
-<!--        <com.nex3z.notificationbadge.NotificationBadge-->
-<!--            android:id="@+id/badge"-->
-<!--            android:layout_width="28dp"-->
-<!--            android:layout_height="28dp"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintHorizontal_bias="0.82"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toTopOf="parent"-->
-<!--            app:nbAnimationDuration="100"-->
-<!--            app:nbAnimationEnabled="true"-->
-<!--            app:nbMaxTextLength="2" />-->
-<!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
+    <!--        <com.nex3z.notificationbadge.NotificationBadge-->
+    <!--            android:id="@+id/badge"-->
+    <!--            android:layout_width="28dp"-->
+    <!--            android:layout_height="28dp"-->
+    <!--            app:layout_constraintEnd_toEndOf="parent"-->
+    <!--            app:layout_constraintHorizontal_bias="0.82"-->
+    <!--            app:layout_constraintStart_toStartOf="parent"-->
+    <!--            app:layout_constraintTop_toTopOf="parent"-->
+    <!--            app:nbAnimationDuration="100"-->
+    <!--            app:nbAnimationEnabled="true"-->
+    <!--            app:nbMaxTextLength="2" />-->
+    <!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
 </RelativeLayout>

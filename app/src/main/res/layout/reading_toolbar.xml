@@ -29,9 +29,10 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:ellipsize="end"
+            android:gravity="center"
             android:maxLines="1"
             android:text="Xoldarov Temur"
-            android:textSize="24sp" />
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/viewCounter"

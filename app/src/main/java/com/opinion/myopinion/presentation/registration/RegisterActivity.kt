@@ -1,6 +1,7 @@
 package com.opinion.myopinion.presentation.registration
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import com.opinion.myopinion.R
@@ -20,14 +21,14 @@ class RegisterActivity : AppCompatActivity() {
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-
+        binding.progressBar.visibility = View.INVISIBLE
         firebaseAuth = FirebaseAuth.getInstance()
 
         binding.loginBtn.setOnClickListener {
             binding.apply {
                 if (loginInputText.text.toString().isNotEmpty() && passwordInputText.text.toString().isNotEmpty()) {
                     val userRegister = UserLogin(UserLoginRequestProvider(firebaseAuth, this@RegisterActivity))
-                    userRegister.login(loginInputText.text.toString(), passwordInputText.text.toString())
+                    userRegister.login(loginInputText.text.toString(), passwordInputText.text.toString(),binding.progressBar)
                 }
             }
         }

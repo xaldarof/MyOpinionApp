@@ -12,7 +12,7 @@
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
 
     <application
-        android:name="com.opinion.myopinion.repository.RealmData"
+        android:name=".repository.RealmData"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -22,9 +22,14 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
         <activity
-            android:name="com.opinion.myopinion.presentation.ReadingActivity"
+            android:name=".presentation.EditingActivity"
+            android:exported="true"
+            android:label="@string/title_activity_editing"
+            android:theme="@style/Theme.MyOpinion.NoActionBar" />
+        <activity
+            android:name=".presentation.ReadingActivity"
             android:exported="true" />
-        <activity android:name="com.opinion.myopinion.presentation.registration.PresentationActivity">
+        <activity android:name=".presentation.registration.PresentationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -32,17 +37,17 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.opinion.myopinion.presentation.registration.RegisterActivity"
+            android:name=".presentation.registration.RegisterActivity"
             android:screenOrientation="portrait" />
-        <activity android:name="com.opinion.myopinion.presentation.SavedOpinionsActivity" />
+        <activity android:name=".presentation.SavedOpinionsActivity" />
         <activity
-            android:name="com.opinion.myopinion.presentation.WriteOpinionActivity"
+            android:name=".presentation.WriteOpinionActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.opinion.myopinion.presentation.MainActivity"
+            android:name=".presentation.MainActivity"
             android:screenOrientation="portrait" />
 
-        <service android:name="com.opinion.myopinion.service.FireBaseMessageService">
+        <service android:name=".service.FireBaseMessageService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>

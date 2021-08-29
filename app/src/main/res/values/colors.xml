@@ -12,5 +12,6 @@
     <color name="green">#27ae61</color>
     <color name="clubHouse">#F1EFE3 </color>
     <color name="blueColor">#4D6FA2</color>
-    <color name="def_color">#DAD5D5</color>
+    <color name="def_color">#F8F5F5</color>
+    <color name="def_color2">#D8D4D4</color>
 </resources>
