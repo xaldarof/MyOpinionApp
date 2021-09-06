@@ -59,15 +59,15 @@
     <string name="loginBtnText">Войти</string>
     <string name="create_with_google">Создать через Google</string>
     <string name="password_hint">Пароль</string>
-    <string name="searchingItem">Поиск...</string>
+    <string name="searchingItem">Поиск…</string>
     <string name="notes">Новости</string>
     <string name="soon_update">Скоро обновление</string>
     <string name="addComment">Оставить коментарии:</string>
     <string name="my_opinions_toolbar_tv">Мои мнении</string>
     <string name="all_opinions">Все мнении : </string>
-    <string name="fill_data_text">Заполнить данные</string>
+    <string name="fill_data_text">Изменить данные</string>
     <string name="sign_in_for_continue">Войдите, чтобы продолжить.</string>
-    <string name="date_of_registration">Дата регистрации:</string>
+    <string name="date_of_registration">Последнее изменение :</string>
     <string name="report_tv">Сообщить</string>
     <string name="copy_tv">Скопировать</string>
     <string name="describe_your_problem">Опишите проблему</string>
@@ -94,4 +94,5 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="editing">Изменение</string>
+    <string name="downloading">Загрузка...</string>
 </resources>

@@ -15,6 +15,8 @@ import com.opinion.myopinion.viewmodel.SignInFragmentViewModel
 import com.opinion.myopinion.viewmodel.SignInViewModelFactory
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
+import com.opinion.myopinion.tools.TopSnackBarShower
+import com.opinion.myopinion.utils.Text
 
 class SignInFragment : Fragment() {
 
@@ -43,13 +45,7 @@ class SignInFragment : Fragment() {
 
             if (login.isNotEmpty() && password.isNotEmpty() && name.isNotEmpty() && surname.isNotEmpty()) {
                 if (!login.endsWith("@gmail.com") || password.length < 8) {
-                    Snackbar.make(
-                        binding.cordinatorLayout,
-                        R.string.error_register_input,
-                        Snackbar.LENGTH_LONG
-                    )
-                        .setBackgroundTint(Color.RED)
-                        .show()
+                    TopSnackBarShower.show(binding.registerLayout,requireActivity(),Text.error)
                 } else {
                     createUser(login, password, name, surname)
                 }

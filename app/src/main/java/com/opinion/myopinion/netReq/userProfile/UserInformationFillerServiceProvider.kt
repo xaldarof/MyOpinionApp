@@ -16,6 +16,6 @@ class UserInformationFillerServiceProvider(private var firebaseAuth: FirebaseAut
         val currentUser = firebaseAuth.currentUser?.uid.toString()
         val formattedDate = FormattedDate.formatted()
 
-        databaseReference.child(currentUser).setValue(UserModel(name,surname,"","",formattedDate,"",currentUser))
+        databaseReference.child(currentUser).setValue(UserModel(name,surname,"","",formattedDate,currentUser))
     }
 }

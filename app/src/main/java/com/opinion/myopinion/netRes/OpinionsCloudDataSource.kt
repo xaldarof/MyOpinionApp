@@ -24,7 +24,9 @@ class OpinionsCloudDataSource : OpinionsService {
                 for (value in children) {
                     val opinion = value.getValue(Opinion::class.java)
                     if (opinion != null) {
-                        opinionList.add(opinion)
+                        if (opinion.title.isNotEmpty() && opinion.shortDescription.isNotEmpty()) {
+                            opinionList.add(opinion)
+                        }
                     }
                 }
                 opinionLiveData.value = opinionList

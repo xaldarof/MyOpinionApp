@@ -1,5 +1,6 @@
 package com.opinion.myopinion.netReq.userProfile
 
+import android.widget.TextView
 import com.opinion.myopinion.models.UserModel
 import com.opinion.myopinion.repository.FavoriteOpinionDataSource
 import com.google.firebase.auth.FirebaseAuth
@@ -18,9 +19,8 @@ class UserProfileInfoCheckProvider(private val firebaseAuth: FirebaseAuth,
     private var dateOfRegister = ""
     private var profileImage = ""
     private var uid = ""
-    private val mutableStateFlow = MutableStateFlow(UserModel())
 
-    override suspend fun getUserInfoFromDb() : MutableStateFlow<UserModel> {
+    override suspend fun serUserInfoToDb(nameTv: TextView,dateRegTv:TextView) {
         firebaseDatabase = FirebaseDatabase.getInstance()
         databaseReference = firebaseDatabase.getReference("users")
         val userUid = firebaseAuth.currentUser?.uid.toString()
@@ -35,17 +35,13 @@ class UserProfileInfoCheckProvider(private val firebaseAuth: FirebaseAuth,
                 profileImage = snapshot.child(userUid).child("profileImage").value.toString()
                 uid = firebaseAuth.currentUser?.uid.toString()
 
-                mutableStateFlow.value = (UserModel(name, surname, hobby, birthDay, dateOfRegister, profileImage, uid))
-            }
-
-            override fun onCancelled(error: DatabaseError) {
+                nameTv.text = name.plus(" $surname")
+                dateRegTv.text = dateOfRegister
 
             }
+            override fun onCancelled(error: DatabaseError) {}
         })
-
-        return mutableStateFlow
     }
-
 
     override fun getUserDataSize(): Int {
         return  favoriteOpinionDataSource.getFavoriteOpinions().size

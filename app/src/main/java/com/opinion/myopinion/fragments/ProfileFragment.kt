@@ -32,7 +32,6 @@ import com.google.firebase.database.FirebaseDatabase
 import io.realm.Realm
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 
@@ -65,13 +64,11 @@ class ProfileFragment : Fragment() {
 
         val userProfileInfo = UserProfileInfo(UserProfileInfoCheckProvider(firebaseAuth,referenceFirebaseDatabase,
             firebaseDatabase, favoriteOpinionDataSource))
+
         CoroutineScope(Dispatchers.Main).launch {
-            userProfileInfo.getUserInfoFromDb().collect {
-                binding.tvName.text = it.name.plus(" ${it.surname}")
-                binding.tvDateOfRegister.text = it.dateOfRegister
-                binding.tvEmail.text = user!!.email
-            }
+            userProfileInfo.serUserInfoToDb(binding.tvName,binding.tvDateOfRegister)
         }
+
         binding.tvFavoritesCount.text = userProfileInfo.getUserDataSize().toString()
 
         return binding.root

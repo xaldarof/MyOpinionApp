@@ -112,7 +112,7 @@
                 android:background="@color/white"
                 android:gravity="left|top"
                 android:hint="@string/write_here"
-                android:inputType="textPersonName"
+                android:inputType="textMultiLine"
                 android:maxLength="1500"
                 android:padding="5dp"
                 tools:ignore="RtlHardcoded" />

@@ -15,8 +15,8 @@ android {
         applicationId "com.opinion.myopinion"
         minSdkVersion 23
         targetSdkVersion 30
-        versionCode 6
-        versionName "2"
+        versionCode 11
+        versionName "1.7"
         multiDexEnabled true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"

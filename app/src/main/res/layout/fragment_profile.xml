@@ -5,6 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/clubHouse"
+    android:clickable="true"
+    android:focusable="true"
     tools:context=".fragments.ProfileFragment">
 
     <include
@@ -41,13 +43,13 @@
 
         <TextView
             android:id="@+id/tvName"
-            android:layout_width="wrap_content"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="24dp"
-            android:maxLength="18"
             android:maxLines="1"
-            android:text="Temur Abduraximov"
+            android:ellipsize="end"
+            android:text="@string/downloading"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -60,7 +62,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="1dp"
             android:layout_marginTop="8dp"
-            android:text="temuruz2003@gmail.com"
+            android:text="@string/downloading"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:textStyle="bold"
