@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.opinion.myopinion.R
 import com.opinion.myopinion.databinding.FavOpinionItemBinding
+import com.opinion.myopinion.helpers.CommentCounter
 import com.opinion.myopinion.repository.entity.FavoriteOpinionEntity
 import io.realm.RealmResults
 
@@ -24,6 +25,10 @@ class FavoriteOpinionItemAdapter(
             favOpinionItemBinding.tvAuthor.text = favoriteOpinionEntity.username
             favOpinionItemBinding.tvType.text = favoriteOpinionEntity.type
             favOpinionItemBinding.tvDescription.text = favoriteOpinionEntity.shortDescription
+
+            val commentCounter = CommentCounter.Base()
+            commentCounter.getCommentCount(favoriteOpinionEntity.postId!!,favOpinionItemBinding.commentCount)
+
 
 
             when (favoriteOpinionEntity.type) {

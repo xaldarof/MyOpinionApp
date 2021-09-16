@@ -10,6 +10,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:name=".repository.RealmData"
@@ -21,15 +22,29 @@
         android:theme="@style/Theme.MyOpinion"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
+
+
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/Base.Theme.AppCompat" />
+
         <activity
             android:name=".presentation.EditingActivity"
             android:exported="true"
             android:label="@string/title_activity_editing"
             android:theme="@style/Theme.MyOpinion.NoActionBar" />
+
+        <activity
+            android:name=".presentation.ProfileActivity"
+            android:exported="true"
+            android:label="@string/title_activity_editing"
+         />
         <activity
             android:name=".presentation.ReadingActivity"
             android:exported="true" />
-        <activity android:name=".presentation.registration.PresentationActivity">
+        <activity
+            android:name=".presentation.registration.PresentationActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -47,7 +62,9 @@
             android:name=".presentation.MainActivity"
             android:screenOrientation="portrait" />
 
-        <service android:name=".service.FireBaseMessageService">
+        <service
+            android:name=".service.FireBaseMessageService"
+            android:exported="true">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>

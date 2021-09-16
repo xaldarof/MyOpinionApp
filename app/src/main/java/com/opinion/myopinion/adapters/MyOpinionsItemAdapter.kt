@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.opinion.myopinion.R
 import com.opinion.myopinion.databinding.MyOpinionItemBinding
+import com.opinion.myopinion.helpers.CommentCounter
 import com.opinion.myopinion.repository.entity.OpinionEntity
 import io.realm.RealmResults
 
@@ -24,6 +25,9 @@ class MyOpinionsItemAdapter(
             myOpinionItemBinding.tvAuthor.text = opinion.username
             myOpinionItemBinding.tvType.text = opinion.type
             myOpinionItemBinding.tvDescription.text = opinion.shortDescription
+
+            val commentCounter = CommentCounter.Base()
+            commentCounter.getCommentCount(opinion.postId!!,myOpinionItemBinding.commentCount)
 
             when (opinion.type) {
                 context.resources.getString(R.string.life) -> {

@@ -8,13 +8,10 @@ import android.widget.EditText
 import android.widget.LinearLayout
 import androidx.appcompat.widget.AppCompatButton
 import com.opinion.myopinion.R
-import com.opinion.myopinion.fragments.ProfileFragment
-import com.opinion.myopinion.models.UserModel
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
-import com.opinion.myopinion.tools.TopSnackBarShower
-import com.ozcanalasalvar.library.view.datePicker.DatePicker
+import com.opinion.myopinion.presentation.ProfileActivity
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.HashMap
@@ -31,7 +28,7 @@ class FormattedDate {
 @SuppressLint("InflateParams")
 class ProfileBottomSheetDialogShower(
     private val context: Context,
-    private val profileFragment: ProfileFragment
+    private val profileActivity: ProfileActivity
 ) : BottomSheetHelpers{
 
     private lateinit var firebaseAuth: FirebaseAuth
@@ -45,7 +42,7 @@ class ProfileBottomSheetDialogShower(
         val view = LayoutInflater.from(context)
             .inflate(
                 R.layout.profile_fragment_bottom_sheet,
-                profileFragment.requireActivity().findViewById(R.id.container) as LinearLayout?)
+                profileActivity.findViewById(R.id.container) as LinearLayout?)
 
         firebaseAuth = FirebaseAuth.getInstance()
         firebaseDatabase = FirebaseDatabase.getInstance()

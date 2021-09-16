@@ -1,5 +1,6 @@
 package com.opinion.myopinion.presentation
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
@@ -45,7 +46,6 @@ class MainActivity : AppCompatActivity() {
             })
         }
         val savedFragment = SavedFragment()
-        val profileFragment = ProfileFragment()
         val searchFragment = SearchFragment()
         val notificationFragment = NotificationFragment()
         val fm = supportFragmentManager
@@ -55,8 +55,7 @@ class MainActivity : AppCompatActivity() {
                 .commit()
         }
         binding.toolBarMain.myProfile.setOnClickListener {
-            fm.beginTransaction().replace(R.id.layout, profileFragment).addToBackStack(null)
-                .commit()
+            startActivity(Intent(this,ProfileActivity::class.java))
         }
         binding.toolBarMain.search.setOnClickListener {
             fm.beginTransaction().replace(R.id.layout, searchFragment).addToBackStack(null)

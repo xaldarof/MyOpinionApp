@@ -65,6 +65,18 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:id="@+id/commentCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="0"
+            android:textColor="@color/blueColor"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/writeCommentBtn"
+            app:layout_constraintStart_toEndOf="@+id/writeCommentBtn"
+            app:layout_constraintTop_toTopOf="@+id/writeCommentBtn" />
+
+        <TextView
             android:id="@+id/tvAuthor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

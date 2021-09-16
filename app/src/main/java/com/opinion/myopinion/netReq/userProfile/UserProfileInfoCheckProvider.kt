@@ -20,7 +20,7 @@ class UserProfileInfoCheckProvider(private val firebaseAuth: FirebaseAuth,
     private var profileImage = ""
     private var uid = ""
 
-    override suspend fun serUserInfoToDb(nameTv: TextView,dateRegTv:TextView) {
+    override suspend fun serUserInfoToDb(nameTv: TextView,dateRegTv:TextView,tvEmail:TextView) {
         firebaseDatabase = FirebaseDatabase.getInstance()
         databaseReference = firebaseDatabase.getReference("users")
         val userUid = firebaseAuth.currentUser?.uid.toString()
@@ -37,6 +37,7 @@ class UserProfileInfoCheckProvider(private val firebaseAuth: FirebaseAuth,
 
                 nameTv.text = name.plus(" $surname")
                 dateRegTv.text = dateOfRegister
+                tvEmail.text = firebaseAuth.currentUser?.email.toString()
 
             }
             override fun onCancelled(error: DatabaseError) {}

@@ -7,12 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.viewpager2.widget.ViewPager2
 import com.opinion.myopinion.R
 import com.opinion.myopinion.adapters.helpers.MainFragmentAdapterHelper
 import com.opinion.myopinion.adapters.helpers.MainFragmentAdapterProvider
 import com.opinion.myopinion.databinding.FragmentMainBinding
 import com.opinion.myopinion.helpers.BundleSender
 import com.opinion.myopinion.helpers.BundleSenderProvider
+import com.opinion.myopinion.helpers.ButtonHider
 import com.opinion.myopinion.models.Opinion
 import com.opinion.myopinion.repository.Status
 import com.opinion.myopinion.tools.TopSnackBarShower
@@ -30,6 +32,14 @@ class MainFragment : Fragment() {
 
         binding = FragmentMainBinding.inflate(inflater, container, false)
         list = ArrayList()
+
+        val buttonHider = ButtonHider.Base(binding.rv)
+        buttonHider.hideOnScroll(binding.addOpinion)
+
+        val viewPager = requireActivity().findViewById<ViewPager2>(R.id.pager)
+        binding.addOpinion.setOnClickListener {
+            viewPager.currentItem = 1
+        }
 
         val mainViewModel = ViewModelProvider(this, ViewModelFactory(this))[MainViewModel::class.java]
 
