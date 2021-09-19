@@ -2,13 +2,16 @@ package com.opinion.myopinion.adapters.helpers
 
 import android.app.Activity
 import android.content.Intent
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.opinion.myopinion.adapters.MyOpinionsItemAdapter
 import com.opinion.myopinion.helpers.BundleSender
 import com.opinion.myopinion.models.Opinion
+import com.opinion.myopinion.presentation.EditingActivity
 import com.opinion.myopinion.presentation.ReadingActivity
+import com.opinion.myopinion.repository.OpinionEntityToOpinion
 import com.opinion.myopinion.repository.entity.OpinionEntity
 import io.realm.RealmResults
 
@@ -41,9 +44,15 @@ class MyOpinionsAdapterHelperProvider(private val activity: Activity, private va
                 intent.putExtra("opinion",
                     Opinion(opinion.title.toString(),opinion.type.toString(),opinion.username.toString(),
                     opinion.date.toString(),opinion.shortDescription.toString(),
-                    opinion.exactTheme.toString(),opinion.body.toString(),opinion.postId.toString(),user)
-                )
+                    opinion.exactTheme.toString(),opinion.body.toString(),opinion.postId.toString(),user))
+
                 fragment.requireContext().startActivity(intent)
+            }
+
+            override fun onClickEdit(opinion: OpinionEntity, position: Int) {
+                val intent = Intent(activity.baseContext, EditingActivity::class.java)
+                intent.putExtra("opinion",OpinionEntityToOpinion().entityToOpinionMapper(opinion))
+                activity.startActivity(intent)
             }
 
         },activity.applicationContext)

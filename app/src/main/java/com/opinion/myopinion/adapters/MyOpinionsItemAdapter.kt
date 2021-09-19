@@ -3,11 +3,14 @@ package com.opinion.myopinion.adapters
 import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.auth.FirebaseAuth
 import com.opinion.myopinion.R
 import com.opinion.myopinion.databinding.MyOpinionItemBinding
 import com.opinion.myopinion.helpers.CommentCounter
+import com.opinion.myopinion.models.Opinion
 import com.opinion.myopinion.repository.entity.OpinionEntity
 import io.realm.RealmResults
 
@@ -28,6 +31,15 @@ class MyOpinionsItemAdapter(
 
             val commentCounter = CommentCounter.Base()
             commentCounter.getCommentCount(opinion.postId!!,myOpinionItemBinding.commentCount)
+
+            if (!FirebaseAuth.getInstance().currentUser?.email.equals(opinion.author)){
+                myOpinionItemBinding.editBtn.visibility = View.INVISIBLE
+            }else {
+                myOpinionItemBinding.editBtn.visibility = View.VISIBLE
+            }
+
+            myOpinionItemBinding.editBtn.setOnClickListener { onClickListener.onClickEdit(opinion,position) }
+
 
             when (opinion.type) {
                 context.resources.getString(R.string.life) -> {
@@ -87,6 +99,9 @@ class MyOpinionsItemAdapter(
         fun onClickComment(opinion: OpinionEntity, position: Int)
 
         fun onClickRead(opinion: OpinionEntity, position: Int)
+
+        fun onClickEdit(opinion: OpinionEntity, position: Int)
+
     }
 
 }

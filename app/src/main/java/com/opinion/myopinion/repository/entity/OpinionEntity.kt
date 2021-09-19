@@ -16,4 +16,5 @@ open class OpinionEntity : RealmObject() {
     var body: String? = null
     var type: String? = null
     var postId: String? = null
+    var author:String? = null
 }

@@ -15,6 +15,7 @@ class OpinionEntityProvider(private val opinion: Opinion,private var opinionEnti
         opinionEntity.username = opinion.username
         opinionEntity.body = opinion.body
         opinionEntity.type = opinion.type
+        opinionEntity.author = opinion.author
 
         return opinionEntity
     }

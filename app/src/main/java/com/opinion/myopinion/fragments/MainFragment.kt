@@ -49,7 +49,9 @@ class MainFragment : Fragment() {
         mainViewModel.getLiveData().observe(requireActivity(), {
             list.clear()
             when (it.status) {
-                Status.SUCCESS -> { list.addAll(it.data!!)
+                Status.SUCCESS -> {
+
+                    list.addAll(it.data!!)
                     list.shuffle()
                     mainFragmentAdapterHelper.notifyDataSetChanged()
                     binding.shimmerLayout.stopShimmer()
